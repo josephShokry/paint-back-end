@@ -6,9 +6,29 @@ import com.oop_paint.Interfaces.Shape;
 
 public class Move implements Command {
     @JsonIgnore
-    public Shape shape;
-    public int newX;
-    public int newY;
+    private Shape shape;
+
+    private int newX;
+    private int newY;
+    private int oldX;
+    private int oldY;
+
+    public int getOldX() {
+        return oldX;
+    }
+
+    public void setOldX(int oldX) {
+        this.oldX = oldX;
+    }
+
+    public int getOldY() {
+        return oldY;
+    }
+
+    public void setOldY(int oldY) {
+        this.oldY = oldY;
+    }
+
     public Move() {
 
     }

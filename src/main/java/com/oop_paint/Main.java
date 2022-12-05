@@ -1,39 +1,45 @@
 package com.oop_paint;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.oop_paint.Commands.CommandFactory;
 import com.oop_paint.Interfaces.Command;
-import com.oop_paint.Interfaces.DTO;
 import com.oop_paint.Interfaces.MainProgram;
+//import com.oop_paint.Interfaces.Saver;
 import com.oop_paint.Interfaces.Shape;
-import com.oop_paint.Savers.SaverFactory;
+//import com.oop_paint.Savers.SaverFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+
 import java.util.Stack;
 
 
 public class Main implements MainProgram {
-    public List<Shape> currentShapes = new ArrayList<>();
-    public Stack<Command> doneCommands = new Stack<>();
-    public Stack<Command> undoneCommands = new Stack<>();
+    private HashMap<Integer,Shape> currentShapes = new HashMap<Integer,Shape>();
+    private Stack<Command> doneCommands = new Stack<>();
+    private Stack<Command> undoneCommands = new Stack<>();
     @JsonIgnore
-    public CommandFactory commandFactory = new CommandFactory();
-    @JsonIgnore
-    public SaverFactory saverFactory = new SaverFactory();
+    private CommandFactory commandFactory = new CommandFactory();
+//    @JsonIgnore
+//    private SaverFactory saverFactory = new SaverFactory();
 
 
-    @Override
-    public void save(DTO dto, Main data) throws IOException {
-        saverFactory.getSaver(dto,data).serialize();
-    }
 
-    @Override
-    public Main load(DTO dto) throws IOException {
-        return (Main) saverFactory.getSaver(dto,null).deserialize();
-    }
+//    @Override
+//    public void save(String fileFormat, String path, Main data) throws IOException {
+//        Saver saver = saverFactory.getSaver(fileFormat);
+//        saver.setData(data);
+//        saver.setPath(path);
+//        saver.serialize();
+//    }
+
+//    @Override
+//    public Main load(String fileFormat, String path) throws IOException {
+//        Saver saver = saverFactory.getSaver(fileFormat);
+//        saver.setPath(path);
+//        return (Main) saver.deserialize();
+////        return (Main) saverFactory.getSaver(dto,null).deserialize();
+//    }
 
     @Override
     public void undo() {
@@ -59,25 +65,24 @@ public class Main implements MainProgram {
         doneCommands.push(command);
         print();
     }
-
-    public List<Shape> getCurrentShapes() {
+    public HashMap<Integer, Shape> getCurrentShapes() {
         return currentShapes;
     }
 
-    public List<Command> getDoneCommands() {
-        return doneCommands;
-    }
-
-    public List<Command> getUndoneCommands() {
-        return undoneCommands;
-    }
-
-    public void setCurrentShapes(List<Shape> currentShapes) {
+    public void setCurrentShapes(HashMap<Integer, Shape> currentShapes) {
         this.currentShapes = currentShapes;
+    }
+
+    public Stack<Command> getDoneCommands() {
+        return doneCommands;
     }
 
     public void setDoneCommands(Stack<Command> doneCommands) {
         this.doneCommands = doneCommands;
+    }
+
+    public Stack<Command> getUndoneCommands() {
+        return undoneCommands;
     }
 
     public void setUndoneCommands(Stack<Command> undoneCommands) {
