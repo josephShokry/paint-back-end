@@ -8,25 +8,25 @@ public class Move implements Command {
     @JsonIgnore
     private Shape shape;
 
-    private int newX;
-    private int newY;
-    private int oldX;
-    private int oldY;
+    private int X;
+    private int Y;
+    private int previousX;
+    private int previousY;
 
-    public int getOldX() {
-        return oldX;
+    public int getPreviousX() {
+        return previousX;
     }
 
-    public void setOldX(int oldX) {
-        this.oldX = oldX;
+    public void setPreviousX(int previousX) {
+        this.previousX = previousX;
     }
 
-    public int getOldY() {
-        return oldY;
+    public int getPreviousY() {
+        return previousY;
     }
 
-    public void setOldY(int oldY) {
-        this.oldY = oldY;
+    public void setPreviousY(int previousY) {
+        this.previousY = previousY;
     }
 
     public Move() {
@@ -35,8 +35,8 @@ public class Move implements Command {
 
     public Move(Shape shape, int newX, int newY) {
         this.shape = shape;
-        this.newX = newX;
-        this.newY = newY;
+        this.X = newX;
+        this.Y = newY;
     }
 
     @Override
@@ -62,19 +62,19 @@ public class Move implements Command {
         this.shape = shape;
     }
 
-    public int getNewX() {
-        return newX;
+    public int getX() {
+        return X;
     }
 
-    public void setNewX(int newX) {
-        this.newX = newX;
+    public void setX(int x) {
+        this.X = x;
     }
 
-    public int getNewY() {
-        return newY;
+    public int getY() {
+        return Y;
     }
 
-    public void setNewY(int newY) {
-        this.newY = newY;
+    public void setY(int y) {
+        this.Y = y;
     }
 }

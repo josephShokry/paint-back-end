@@ -3,21 +3,19 @@ package com.oop_paint;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.oop_paint.Commands.CommandFactory;
 import com.oop_paint.Interfaces.Command;
-import com.oop_paint.Interfaces.MainProgram;
 //import com.oop_paint.Interfaces.Saver;
 import com.oop_paint.Interfaces.Shape;
 //import com.oop_paint.Savers.SaverFactory;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import java.util.Stack;
 
 
-public class Main implements MainProgram {
+public class CommandInvoker implements com.oop_paint.Interfaces.CommandInvoker {
     private HashMap<Integer,Shape> currentShapes = new HashMap<Integer,Shape>();
-    private Stack<Command> doneCommands = new Stack<>();
-    private Stack<Command> undoneCommands = new Stack<>();
+    private Stack<Command> undoStack = new Stack<>();
+    private Stack<Command> redoStack = new Stack<>();
     @JsonIgnore
     private CommandFactory commandFactory = new CommandFactory();
 //    @JsonIgnore
@@ -43,27 +41,36 @@ public class Main implements MainProgram {
 
     @Override
     public void undo() {
-        Command command = doneCommands.peek();
-        doneCommands.pop();
-        undoneCommands.push(command);
+        Command command = undoStack.peek();
+        undoStack.pop();
+        redoStack.push(command);
         command.undo();
-        print();
+        System.out.println(this.toString());
     }
 
     @Override
     public void redo() {
-        Command command = undoneCommands.peek();
-        undoneCommands.pop();
-        doneCommands.push(command);
+        Command command = redoStack.peek();
+        redoStack.pop();
+        undoStack.push(command);
         command.redo();
-        print();
+        System.out.println(this.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Main{" +
+                "currentShapes=" + currentShapes.toString() +
+                ", undoStack=" + undoStack.toString() +
+                ", redoStack=" + redoStack.toString() +
+                '}';
     }
 
     public void execute(DTO dto){
         Command command = commandFactory.getCommand(dto);
         command.execute();
-        doneCommands.push(command);
-        print();
+        undoStack.push(command);
+        System.out.println(this.toString());
     }
     public HashMap<Integer, Shape> getCurrentShapes() {
         return currentShapes;
@@ -73,25 +80,20 @@ public class Main implements MainProgram {
         this.currentShapes = currentShapes;
     }
 
-    public Stack<Command> getDoneCommands() {
-        return doneCommands;
+    public Stack<Command> getUndoStack() {
+        return undoStack;
     }
 
-    public void setDoneCommands(Stack<Command> doneCommands) {
-        this.doneCommands = doneCommands;
+    public void setUndoStack(Stack<Command> undoStack) {
+        this.undoStack = undoStack;
     }
 
-    public Stack<Command> getUndoneCommands() {
-        return undoneCommands;
+    public Stack<Command> getRedoStack() {
+        return redoStack;
     }
 
-    public void setUndoneCommands(Stack<Command> undoneCommands) {
-        this.undoneCommands = undoneCommands;
+    public void setRedoStack(Stack<Command> redoStack) {
+        this.redoStack = redoStack;
     }
 
-    private void print(){
-        System.out.println("the shapes " + currentShapes.toString());
-        System.out.println("the done " + doneCommands.toString());
-        System.out.println("the undone " + undoneCommands.toString());
-    }
 }

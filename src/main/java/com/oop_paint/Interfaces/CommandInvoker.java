@@ -1,11 +1,6 @@
 package com.oop_paint.Interfaces;
 
-import com.oop_paint.DTO;
-import com.oop_paint.Main;
-
-import java.io.IOException;
-
-public interface MainProgram {
+public interface CommandInvoker {
 
 //    void save(String fileFormat, String path, Main data) throws IOException;
 //

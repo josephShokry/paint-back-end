@@ -4,20 +4,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
-
 @RestController
 public class Controllers {
-    Main main = new Main();
+    CommandInvoker commandInvoker = new CommandInvoker();
 
     @PostMapping("/undo")
     void undo(){
-        main.undo();
+        commandInvoker.undo();
     }
 
     @PostMapping("/redo")
     void redo(){
-        main.redo();
+        commandInvoker.redo();
     }
 
 //    @PostMapping("/save")
@@ -34,6 +32,6 @@ public class Controllers {
 
     @PostMapping("/execute")
     void execute(@RequestBody DTO dto){
-        main.execute(dto);
+        commandInvoker.execute(dto);
     }
 }
