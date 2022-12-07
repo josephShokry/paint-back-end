@@ -3,41 +3,43 @@ package com.oop_paint;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.oop_paint.Commands.CommandFactory;
 import com.oop_paint.Interfaces.Command;
-//import com.oop_paint.Interfaces.Saver;
+import com.oop_paint.Interfaces.ICommandInvoker;
+import com.oop_paint.Interfaces.Saver;
 import com.oop_paint.Interfaces.Shape;
-//import com.oop_paint.Savers.SaverFactory;
+import com.oop_paint.Savers.SaverFactory;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import java.util.Stack;
 
 
-public class CommandInvoker implements com.oop_paint.Interfaces.CommandInvoker {
+public class CommandInvoker implements ICommandInvoker {
     private HashMap<Integer,Shape> currentShapes = new HashMap<Integer,Shape>();
     private Stack<Command> undoStack = new Stack<>();
     private Stack<Command> redoStack = new Stack<>();
     @JsonIgnore
     private CommandFactory commandFactory = new CommandFactory();
-//    @JsonIgnore
-//    private SaverFactory saverFactory = new SaverFactory();
+    @JsonIgnore
+    private SaverFactory saverFactory = new SaverFactory();
 
 
 
-//    @Override
-//    public void save(String fileFormat, String path, Main data) throws IOException {
-//        Saver saver = saverFactory.getSaver(fileFormat);
-//        saver.setData(data);
-//        saver.setPath(path);
-//        saver.serialize();
-//    }
+    @Override
+    public void save(String fileFormat, String path, ICommandInvoker data) throws IOException {
+        Saver saver = saverFactory.getSaver(fileFormat);
+        saver.setData(data);
+        saver.setPath(path);
+        saver.serialize();
+    }
 
-//    @Override
-//    public Main load(String fileFormat, String path) throws IOException {
-//        Saver saver = saverFactory.getSaver(fileFormat);
-//        saver.setPath(path);
-//        return (Main) saver.deserialize();
-////        return (Main) saverFactory.getSaver(dto,null).deserialize();
-//    }
+    @Override
+    public CommandInvoker load(String fileFormat, String path) throws IOException {
+        Saver saver = saverFactory.getSaver(fileFormat);
+        saver.setPath(path);
+        return (CommandInvoker) saver.deserialize();
+//        return (Main) saverFactory.getSaver(dto,null).deserialize();
+    }
 
     @Override
     public void undo() {
