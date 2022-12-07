@@ -1,5 +1,6 @@
 package com.oop_paint;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,5 +36,12 @@ public class Controllers {
     @PostMapping("/execute")
     void execute(@RequestBody DTO dto){
         commandInvoker.execute(dto);
+    }
+
+    //this function for testing don't care about it for now
+    @GetMapping("/add")
+    String add(){
+        commandInvoker.add();
+        return "added";
     }
 }

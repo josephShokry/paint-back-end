@@ -13,68 +13,42 @@ public class Move implements Command {
     private int previousX;
     private int previousY;
 
-    public int getPreviousX() {
-        return previousX;
-    }
-
-    public void setPreviousX(int previousX) {
-        this.previousX = previousX;
-    }
-
-    public int getPreviousY() {
-        return previousY;
-    }
-
-    public void setPreviousY(int previousY) {
-        this.previousY = previousY;
-    }
-
     public Move() {
 
     }
 
-    public Move(Shape shape, int newX, int newY) {
+    public Move(Shape shape, int x, int y) {
         this.shape = shape;
-        this.X = newX;
-        this.Y = newY;
+        this.X = x;
+        this.Y = y;
     }
 
     @Override
     public void undo() {
-        System.out.println("undo move command");
+        this.shape.move(previousX, previousY);
     }
 
     @Override
     public void redo() {
-        System.out.println("redo move command");
+        this.shape.move(X, Y);
     }
+
 
     @Override
     public void execute() {
-        System.out.println("execute move command");
+        this.previousX = shape.getx();
+        this.previousY = shape.gety();
+        this.shape.move(X,Y);
     }
 
-    public Shape getShape() {
-        return shape;
-    }
-
-    public void setShape(Shape shape) {
-        this.shape = shape;
-    }
-
-    public int getX() {
-        return X;
-    }
-
-    public void setX(int x) {
-        this.X = x;
-    }
-
-    public int getY() {
-        return Y;
-    }
-
-    public void setY(int y) {
-        this.Y = y;
+    @Override
+    public String toString() {
+        return "Move{" +
+                "shape=" + shape +
+                ", X=" + X +
+                ", Y=" + Y +
+                ", previousX=" + previousX +
+                ", previousY=" + previousY +
+                '}';
     }
 }

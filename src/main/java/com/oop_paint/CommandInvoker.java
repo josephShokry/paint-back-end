@@ -7,6 +7,7 @@ import com.oop_paint.Interfaces.ICommandInvoker;
 import com.oop_paint.Interfaces.Saver;
 import com.oop_paint.Interfaces.Shape;
 import com.oop_paint.Savers.SaverFactory;
+import com.oop_paint.Shapes.square;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -23,6 +24,11 @@ public class CommandInvoker implements ICommandInvoker {
     @JsonIgnore
     private SaverFactory saverFactory = new SaverFactory();
 
+    //simple method to add shapes to list to test
+    public void add() {
+        currentShapes.put(5,new square(5,5,20,20));
+        currentShapes.put(6,new square(12,13,100,100));
+    }
 
 
     @Override
@@ -38,7 +44,6 @@ public class CommandInvoker implements ICommandInvoker {
         Saver saver = saverFactory.getSaver(fileFormat);
         saver.setPath(path);
         return (CommandInvoker) saver.deserialize();
-//        return (Main) saverFactory.getSaver(dto,null).deserialize();
     }
 
     @Override
@@ -69,7 +74,7 @@ public class CommandInvoker implements ICommandInvoker {
     }
 
     public void execute(DTO dto){
-        Command command = commandFactory.getCommand(dto);
+        Command command = commandFactory.getCommand(dto, currentShapes.get(dto.shapeID));
         command.execute();
         undoStack.push(command);
         System.out.println(this.toString());
