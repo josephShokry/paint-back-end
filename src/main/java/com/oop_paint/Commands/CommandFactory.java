@@ -1,15 +1,16 @@
-package com.oop_paint.Commands;
+package com.oop_paint.commands;
 
-import com.oop_paint.Interfaces.Command;
-import com.oop_paint.DTO;
-import com.oop_paint.Interfaces.Shape;
+import com.oop_paint.shapes.Circle;
+import com.oop_paint.shapes.Shape;
+import com.oop_paint.shapes.ShapeDTO;
 
 public class CommandFactory {
-    public Command getCommand(DTO commandDetails, Shape shape){
-        //todo: the reset of commands will be added here
-        switch (commandDetails.commandName){
-            case "move": return new Move(shape, commandDetails.newx,commandDetails.newy);
-            default: return null;
+    public Command getCommand(ShapeDTO shapeDTO){
+        String commandType = shapeDTO.commandType;
+        switch (commandType){
+            case "draw": return new Draw(shapeDTO);
+            case "recolor": return new Recolor(shapeDTO);
+            default:return null;
         }
     }
 }

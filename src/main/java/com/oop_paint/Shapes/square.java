@@ -1,43 +1,55 @@
-package com.oop_paint.Shapes;
+package com.oop_paint.shapes;
 
-import com.oop_paint.Interfaces.Shape;
+import com.oop_paint.database.Database;
 
-public class square implements Shape {
-    private int x;
-    private int y;
+public class Square extends Shape {
     private int width;
-    private int hight;
-    private String color;
+    private int height;
 
-    public square(int x, int y, int width, int hight) {
-        this.x = x;
-        this.y = y;
+    public Square(int x, int y, String color, int id, int width, int height) {
+        super.setX(x);
+        super.setY(y);
+        super.setColor(color);
+        super.setId(id);
         this.width = width;
-        this.hight = hight;
+        this.height = height;
     }
+
+    public Square() {
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    @Override
+    public void setAttributes(ShapeDTO shapeDTO) {
+        this.width = shapeDTO.width;
+        this.height = shapeDTO.height;
+    }
+
     public void move(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-
-    @Override
-    public int getx() {
-        return this.x;
-    }
-
-    @Override
-    public int gety() {
-        return this.y;
+        super.setX(x);
+        super.setY(y);
     }
 
     @Override
     public String toString() {
         return "square{" +
-                "x=" + x +
-                ", y=" + y +
-                ", width=" + width +
-                ", hight=" + hight +
-                ", color='" + color + '\'' +
+                "width=" + width +
+                ", height=" + height +
                 '}';
     }
 }
