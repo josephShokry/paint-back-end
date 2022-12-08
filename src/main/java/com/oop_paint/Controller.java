@@ -13,7 +13,7 @@ public class Controller {
     Database database = Database.getInstance();
     @PostMapping("/draw")
     public void draw(@RequestBody ShapeDTO shapeDTO){
-        paint.create(shapeDTO);
+        paint.draw(shapeDTO);
         System.out.println(database.toString());
     }
     @PostMapping("/undo")

@@ -1,13 +1,11 @@
 package com.oop_paint.shapes;
 
-import com.oop_paint.database.Database;
-
-public class Square extends Shape {
+public class Rectangle extends Shape {
     private int width;
     private int height;
     private int []attributes = new int [2];
 
-    public Square(int x, int y, String color, int id, int width, int height) {
+    public Rectangle(int x, int y, String color, int id, int width, int height) {
         super.setX(x);
         super.setY(y);
         super.setColor(color);
@@ -16,7 +14,7 @@ public class Square extends Shape {
         this.height = height;
     }
 
-    public Square() {
+    public Rectangle() {
     }
 
     public int getWidth() {
@@ -55,7 +53,7 @@ public class Square extends Shape {
 
     @Override
     public String toString() {
-        return "square{" +
+        return "Rectangle{" +
                 "width=" + width +
                 ", height=" + height +
                 '}';

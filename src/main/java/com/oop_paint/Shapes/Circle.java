@@ -5,6 +5,7 @@ import com.oop_paint.database.Database;
 public class Circle extends Shape {
     private int radius;
 
+
     public Circle(int x, int y, String color, int radius, int id) {
         //todo function to set att of the super
         super.setX(x);
@@ -19,6 +20,11 @@ public class Circle extends Shape {
     @Override
     public void setAttributes(ShapeDTO shapeDTO){
         radius = shapeDTO.radius;
+    }
+
+    @Override
+    public Integer getAttributes() {
+        return radius;
     }
 
     public int getRadius() {

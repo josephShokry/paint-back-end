@@ -5,6 +5,8 @@ public class ShapeDTO {
     public int x;
     public int y;
     public int radius;
+    public int radiusX;
+    public int radiusY;
     public int width;
     public int height;
 

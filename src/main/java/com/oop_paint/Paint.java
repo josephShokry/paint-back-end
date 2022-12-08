@@ -8,7 +8,7 @@ import com.oop_paint.shapes.ShapeDTO;
 public class Paint {
     Database database = Database.getInstance();
     CommandFactory commandFactory = new CommandFactory();
-    public void create(ShapeDTO shapeDTO){
+    public void draw(ShapeDTO shapeDTO){
         Command command = commandFactory.getCommand(shapeDTO);
         database.addCommand(command);
         command.execute();

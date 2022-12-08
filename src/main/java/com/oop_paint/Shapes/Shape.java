@@ -39,8 +39,10 @@ public abstract class Shape {
     public void setId(int id) {
         this.id = id;
     }
+
     public abstract void setAttributes(ShapeDTO shapeDTO);
 
+    public abstract Object getAttributes();
 
     public void draw(){
         Database database = Database.getInstance();
