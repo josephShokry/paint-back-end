@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 public class Controller {
     Paint paint = new Paint();
@@ -30,5 +32,13 @@ public class Controller {
     public void update(@RequestBody ShapeDTO shapeDTO){
         paint.update(shapeDTO);
         System.out.println(database.toString());
+    }
+    @PostMapping("/save")
+    public void save(@RequestBody ShapeDTO shapeDTO) throws IOException {
+        paint.save(shapeDTO);
+    }
+    @PostMapping("/load")
+    public void load(@RequestBody ShapeDTO shapeDTO) throws IOException {
+        paint.load(shapeDTO);
     }
 }

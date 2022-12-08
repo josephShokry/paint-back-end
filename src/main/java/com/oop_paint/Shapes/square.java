@@ -1,12 +1,14 @@
 package com.oop_paint.shapes;
 
-import com.oop_paint.database.Database;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
+@JsonTypeName("square")
 public class Square extends Shape {
     private int width;
     private int height;
 
-    public Square(int x, int y, String color, int id, int width, int height) {
+    public Square(int x, int y, String color, String id, int width, int height) {
         super.setX(x);
         super.setY(y);
         super.setColor(color);

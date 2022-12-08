@@ -5,6 +5,8 @@ import com.oop_paint.commands.CommandFactory;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.ShapeDTO;
 
+import java.io.IOException;
+
 public class Paint {
     Database database = Database.getInstance();
     CommandFactory commandFactory = new CommandFactory();
@@ -23,5 +25,11 @@ public class Paint {
         Command command = commandFactory.getCommand(shapeDTO);
         database.addCommand(command);
         command.execute();
+    }
+    public void save(ShapeDTO shapeDTO) throws IOException {
+        database.save(shapeDTO.path);
+    }
+    public void load(ShapeDTO shapeDTO) throws IOException {
+        database.load((shapeDTO.path));
     }
 }
