@@ -1,15 +1,20 @@
 package com.oop_paint.commands;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 import com.oop_paint.shapes.ShapeFactory;
 
+@JsonTypeName("Draw")
+
 public class Draw implements Command{
     private Shape shape;
     private ShapeDTO data;
 
-    public Draw(ShapeDTO data) {
+    public Draw(@JsonProperty("shapeDTO")ShapeDTO data) {
         this.data = data;
     }
 
@@ -36,4 +41,21 @@ public class Draw implements Command{
         shape.setAttributes(data);
         shape.draw();
     }
+
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
+    public ShapeDTO getData() {
+        return data;
+    }
+
+    public void setData(ShapeDTO data) {
+        this.data = data;
+    }
+
 }

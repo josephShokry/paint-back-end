@@ -1,7 +1,5 @@
 package com.oop_paint.commands;
 
-import com.oop_paint.shapes.Circle;
-import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
 public class CommandFactory {

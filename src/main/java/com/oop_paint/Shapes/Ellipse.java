@@ -7,7 +7,7 @@ public class Ellipse extends Shape{
 
 
 
-    public Ellipse(int x, int y, String color, int radiusX, int radiusY,  int id) {
+    public Ellipse(int x, int y, String color, int radiusX, int radiusY,  String id) {
         //todo function to set att of the super
         super.setX(x);
         super.setY(y);

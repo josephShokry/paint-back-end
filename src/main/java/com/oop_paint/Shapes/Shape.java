@@ -1,11 +1,20 @@
 package com.oop_paint.shapes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.oop_paint.database.Database;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY, visible = true)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Square.class, name = "square"),
+        @JsonSubTypes.Type(value = Circle.class, name = "circle")
+})
 public abstract class Shape {
     private int x;
     private int y;
-    private int id;
+    private String id;
     private String color;
 
     public int getX() {
@@ -32,11 +41,11 @@ public abstract class Shape {
         this.color = color;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
