@@ -26,6 +26,7 @@ public class Resize implements Command{
 
     @Override
     public void undo() {
+
         if(shapeType.equalsIgnoreCase("circle")){
             this.temporary = this.oldRadius;
             this.oldRadius = this.data.radius;
