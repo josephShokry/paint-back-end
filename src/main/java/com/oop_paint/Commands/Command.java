@@ -1,4 +1,4 @@
-package com.oop_paint.commands;
+package com.oop_paint.Commands;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
