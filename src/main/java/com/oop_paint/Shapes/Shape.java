@@ -5,12 +5,16 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.oop_paint.database.Database;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonIgnoreProperties(ignoreUnknown = true, value = {"attributes"})
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY, visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Square.class, name = "square"),
-        @JsonSubTypes.Type(value = Circle.class, name = "circle")
+        @JsonSubTypes.Type(value = Circle.class, name = "circle"),
+        @JsonSubTypes.Type(value = Ellipse.class, name = "ellipse"),
+        @JsonSubTypes.Type(value = Rectangle.class, name = "rectangle"),
+        @JsonSubTypes.Type(value = SegmentLine.class, name = "segmentline")
 })
+@JsonIgnoreProperties(value = "attributes",ignoreUnknown = true)
 public abstract class Shape {
     private int x;
     private int y;

@@ -1,9 +1,12 @@
 package com.oop_paint.commands;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
+@JsonTypeName("Resize")
 public class Resize implements Command{
     private Shape shape;
     private ShapeDTO data;
@@ -16,11 +19,8 @@ public class Resize implements Command{
     private int temporary;
     private int []attributes;
 
-    public Resize(ShapeDTO data) {
+    public Resize(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;
-        Database database = Database.getInstance();
-        shape = database.getShape(data.id);
-        shapeType = data.shapeType;
     }
 
 
@@ -70,6 +70,9 @@ public class Resize implements Command{
 
     @Override
     public void execute() {
+        Database database = Database.getInstance();
+        shape = database.getShape(data.id);
+        shapeType = data.shapeType;
         if(shapeType.equalsIgnoreCase("circle")){
             this.oldRadius = (int) shape.getAttributes();
             shape.setAttributes(this.data);
@@ -88,5 +91,86 @@ public class Resize implements Command{
             this.oldRadiusY = this.attributes[1];
             shape.setAttributes(this.data);
         }
+    }
+/////getter and setter for the saver
+
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
+    public ShapeDTO getData() {
+        return data;
+    }
+
+    public void setData(ShapeDTO data) {
+        this.data = data;
+    }
+
+    public String getShapeType() {
+        return shapeType;
+    }
+
+    public void setShapeType(String shapeType) {
+        this.shapeType = shapeType;
+    }
+
+    public int getOldRadiusX() {
+        return oldRadiusX;
+    }
+
+    public void setOldRadiusX(int oldRadiusX) {
+        this.oldRadiusX = oldRadiusX;
+    }
+
+    public int getOldRadiusY() {
+        return oldRadiusY;
+    }
+
+    public void setOldRadiusY(int oldRadiusY) {
+        this.oldRadiusY = oldRadiusY;
+    }
+
+    public int getOldRadius() {
+        return oldRadius;
+    }
+
+    public void setOldRadius(int oldRadius) {
+        this.oldRadius = oldRadius;
+    }
+
+    public int getOldWidth() {
+        return oldWidth;
+    }
+
+    public void setOldWidth(int oldWidth) {
+        this.oldWidth = oldWidth;
+    }
+
+    public int getOldHeight() {
+        return oldHeight;
+    }
+
+    public void setOldHeight(int oldHeight) {
+        this.oldHeight = oldHeight;
+    }
+
+    public int getTemporary() {
+        return temporary;
+    }
+
+    public void setTemporary(int temporary) {
+        this.temporary = temporary;
+    }
+
+    public int[] getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(int[] attributes) {
+        this.attributes = attributes;
     }
 }

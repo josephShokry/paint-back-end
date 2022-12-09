@@ -9,7 +9,7 @@ import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
 @JsonTypeName("Recolor")
-@JsonPropertyOrder({"data","shape","oldColor"})
+//@JsonPropertyOrder({"data","shape","oldColor"})
 public class Recolor implements Command{
     private Shape shape;
     private ShapeDTO data;

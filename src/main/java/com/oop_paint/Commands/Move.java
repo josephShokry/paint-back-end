@@ -1,9 +1,11 @@
 package com.oop_paint.commands;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
+@JsonTypeName("Move")
 public class Move implements Command{
 
     private Shape shape;
