@@ -18,5 +18,6 @@ public class ShapeDTO {
     public String shapeType;
     public String commandType;
     public String path;
+    public Object attributes;
 
 }

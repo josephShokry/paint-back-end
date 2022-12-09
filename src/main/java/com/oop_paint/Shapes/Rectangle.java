@@ -1,5 +1,8 @@
 package com.oop_paint.shapes;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("rectangle")
 public class Rectangle extends Shape {
     private int width;
     private int height;

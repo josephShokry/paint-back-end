@@ -1,6 +1,5 @@
 package com.oop_paint.shapes;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @JsonTypeName("square")

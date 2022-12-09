@@ -1,5 +1,6 @@
 package com.oop_paint.commands;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
@@ -9,10 +10,9 @@ public class Delete implements Command {
     private Shape shape;
     private ShapeDTO data;
 
-    public Delete(ShapeDTO data) {
+    public Delete(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;
-        Database database = Database.getInstance();
-        shape = database.getShape(data.id);
+
     }
 
     @Override
@@ -27,6 +27,25 @@ public class Delete implements Command {
 
     @Override
     public void execute() {
+        Database database = Database.getInstance();
+        shape = database.getShape(data.id);
         shape.delete();
+    }
+    //getter and setters for saver
+
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
+    public ShapeDTO getData() {
+        return data;
+    }
+
+    public void setData(ShapeDTO data) {
+        this.data = data;
     }
 }

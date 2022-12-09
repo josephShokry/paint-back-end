@@ -1,5 +1,8 @@
 package com.oop_paint.shapes;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+@JsonTypeName("ellipse")
 public class Ellipse extends Shape{
     private int radiusX;
     private int radiusY;

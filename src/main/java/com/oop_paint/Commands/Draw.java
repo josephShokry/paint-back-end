@@ -1,6 +1,7 @@
 package com.oop_paint.commands;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.oop_paint.database.Database;
@@ -9,7 +10,7 @@ import com.oop_paint.shapes.ShapeDTO;
 import com.oop_paint.shapes.ShapeFactory;
 
 @JsonTypeName("Draw")
-
+@JsonIgnoreProperties("attributes")
 public class Draw implements Command{
     private Shape shape;
     private ShapeDTO data;
