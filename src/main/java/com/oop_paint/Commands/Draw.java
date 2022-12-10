@@ -33,12 +33,12 @@ public class Draw implements Command{
     @Override
     public void execute() {
         ShapeFactory shapeFactory = new ShapeFactory();
-        shape = shapeFactory.getShape(data.shapeType);
+        shape = shapeFactory.getShape(data.className);
         //todo add the dto to the factory
-        shape.setX(data.x);
-        shape.setY(data.y);
-        shape.setColor(data.color);
-        shape.setId(data.id);
+        shape.setX(data.attrs.x);
+        shape.setY(data.attrs.y);
+        shape.setColor(data.attrs.fill);
+        shape.setId(data.attrs.id);
         shape.setAttributes(data);
         shape.draw();
     }

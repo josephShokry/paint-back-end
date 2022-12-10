@@ -13,11 +13,11 @@ public class ShapeDTO {
     public int radiusY;
     public int width;
     public int height;
-
     public String color;
-    public String shapeType;
     public String commandType;
     public String path;
     public Object attributes;
+    public shapeAttrs attrs;
+    public String className;
 
 }

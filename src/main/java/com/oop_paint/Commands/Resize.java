@@ -72,7 +72,7 @@ public class Resize implements Command{
     public void execute() {
         Database database = Database.getInstance();
         shape = database.getShape(data.id);
-        shapeType = data.shapeType;
+        shapeType = data.className;
         if(shapeType.equalsIgnoreCase("circle")){
             this.oldRadius = (int) shape.getAttributes();
             shape.setAttributes(this.data);
