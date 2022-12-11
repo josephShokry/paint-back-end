@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ShapeDTO {
-    public String id;
+
     public int x;
     public int y;
     public int radius;
@@ -13,11 +13,13 @@ public class ShapeDTO {
     public int radiusY;
     public int width;
     public int height;
-    public String color;
+    public int scaleX;
+    public int scaleY;
+    public String id;
+    public String fill;
     public String commandType;
     public String path;
-    public Object attributes;
-    public shapeAttrs attrs;
     public String className;
 
+    public Object stage;
 }

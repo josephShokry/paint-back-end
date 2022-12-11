@@ -59,7 +59,7 @@ public abstract class Shape {
 
     public void draw(){
         Database database = Database.getInstance();
-        database.addShape(this);
+        this.setId(database.addShape(this));
     }
     public void delete(){
         Database database = Database.getInstance();

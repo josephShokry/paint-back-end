@@ -7,7 +7,7 @@ import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
 @JsonTypeName("Resize")
-public class Resize implements Command{
+public class Resize extends Command{
     private Shape shape;
     private ShapeDTO data;
     private String shapeType;

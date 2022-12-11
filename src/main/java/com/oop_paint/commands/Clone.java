@@ -4,7 +4,7 @@ import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
-public class Clone implements Command{
+public class Clone extends Command{
 
     private Shape shape;
     private ShapeDTO data;

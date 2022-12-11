@@ -11,12 +11,12 @@ import com.oop_paint.shapes.ShapeFactory;
 
 @JsonTypeName("Draw")
 @JsonIgnoreProperties("attributes")
-public class Draw implements Command{
+public class Draw extends Command{
     private Shape shape;
-    private ShapeDTO data;
+//    private ShapeDTO data;
 
     public Draw(@JsonProperty("shapeDTO")ShapeDTO data) {
-        this.data = data;
+        super.data = data;
     }
 
     @Override
@@ -37,10 +37,11 @@ public class Draw implements Command{
         //todo add the dto to the factory
         shape.setX(data.x);
         shape.setY(data.y);
-        shape.setColor(data.color);
-        shape.setId(data.id);
+        shape.setColor(data.fill);
+//        shape.setId(data.id);
         shape.setAttributes(data);
         shape.draw();
+        data.id = shape.getId();
     }
 
     public Shape getShape() {

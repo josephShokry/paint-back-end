@@ -22,6 +22,10 @@ public class Saver {
         database.setRedoStack(data.getRedoStack());
         database.setUndoStack(data.getUndoStack());
     }
+    public Object loadStage() throws IOException {
+        File file = new File(path);
+        return mapper.readValue(file, Object.class);
+    }
 
     public void setMapper(ObjectMapper mapper) {
         this.mapper = mapper;

@@ -3,6 +3,7 @@ package com.oop_paint.commands;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.oop_paint.shapes.ShapeDTO;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
@@ -13,8 +14,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = Move.class, name = "Move"),
         @JsonSubTypes.Type(value = Resize.class, name = "Resize")
 })
-public interface Command {
-    void undo();
-    void redo();
-    void execute();
+public abstract class Command {
+    public ShapeDTO data = null;
+    public abstract void undo();
+    public abstract void redo();
+    public abstract void execute();
+    public void setData(ShapeDTO data){
+        this.data = data;
+    }
 }

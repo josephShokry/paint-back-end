@@ -14,21 +14,18 @@ public class Controller {
     Database database = Database.getInstance();
     @PostMapping("/draw")
     public void draw(@RequestBody ShapeDTO shapeDTO){
-        //TODO return the id of the created shape
         paint.draw(shapeDTO);
         System.out.println(database.toString());
     }
     @GetMapping("/undo")
-    public Command undo(){
-        //TODO send the whole object after undo
+    public ShapeDTO undo(){
         System.out.println(database.toString());
         return paint.undo();
     }
-    @PostMapping("/redo")
-    public void redo(){
-        //TODO send the whole object after redo
-        paint.redo();
+    @GetMapping("/redo")
+    public ShapeDTO redo(){
         System.out.println(database.toString());
+        return paint.redo();
     }
     @PutMapping("/update")
     public void update(@RequestBody ShapeDTO shapeDTO){
@@ -39,10 +36,10 @@ public class Controller {
     public void save(@RequestBody ShapeDTO shapeDTO) throws IOException {
         paint.save(shapeDTO);
     }
-    @PostMapping("/load")
-    public void load(@RequestBody ShapeDTO shapeDTO) throws IOException {
+    @GetMapping("/load")
+    public Object load(@RequestBody ShapeDTO shapeDTO) throws IOException {
         //TODO return the stage and get stage
-        paint.load(shapeDTO);
+        return paint.load(shapeDTO);
     }
     @PostMapping("/get")
     public void printt(@RequestBody ShapeDTO object){

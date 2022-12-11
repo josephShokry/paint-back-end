@@ -14,22 +14,24 @@ public class Paint {
         Command command = commandFactory.getCommand(shapeDTO);
         database.addCommand(command);
         command.execute();
+        database.clearRedoStack();
     }
-    public Command undo(){
+    public ShapeDTO undo(){
         return database.undo();
     }
-    public void redo(){
-        database.redo();
+    public ShapeDTO redo(){
+        return database.redo();
     }
     public void update(ShapeDTO shapeDTO){
         Command command = commandFactory.getCommand(shapeDTO);
         database.addCommand(command);
         command.execute();
+        database.clearRedoStack();
     }
     public void save(ShapeDTO shapeDTO) throws IOException {
-        database.save(shapeDTO.path);
+        database.save(shapeDTO);
     }
-    public void load(ShapeDTO shapeDTO) throws IOException {
-        database.load((shapeDTO.path));
+    public Object load(ShapeDTO shapeDTO) throws IOException {
+        return database.load((shapeDTO.path));
     }
 }

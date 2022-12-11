@@ -6,15 +6,15 @@ import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
 @JsonTypeName("Move")
-public class Move implements Command{
+public class Move extends Command{
 
     private Shape shape;
-    private ShapeDTO data;
+//    private ShapeDTO data;
     private int oldX;
     private int oldY;
 
     public Move(ShapeDTO data) {
-        this.data = data;
+        super.data = data;
         Database database = Database.getInstance();
         shape = database.getShape(data.id);
     }

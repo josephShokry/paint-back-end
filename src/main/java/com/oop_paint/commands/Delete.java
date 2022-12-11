@@ -5,14 +5,13 @@ import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
-public class Delete implements Command {
+public class Delete extends Command {
 
     private Shape shape;
-    private ShapeDTO data;
+//    private ShapeDTO data;
 
     public Delete(@JsonProperty("Data")ShapeDTO data) {
-        this.data = data;
-
+//        super.data = data;
     }
 
     @Override
