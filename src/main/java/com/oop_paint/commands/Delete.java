@@ -8,7 +8,6 @@ import com.oop_paint.shapes.ShapeDTO;
 public class Delete extends Command {
 
     private Shape shape;
-//    private ShapeDTO data;
 
     public Delete(@JsonProperty("Data")ShapeDTO data) {
         super.data = data;

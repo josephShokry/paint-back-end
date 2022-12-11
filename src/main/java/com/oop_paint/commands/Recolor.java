@@ -9,14 +9,12 @@ import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
 
 @JsonTypeName("Recolor")
-//@JsonPropertyOrder({"data","shape","oldColor"})
 public class Recolor extends Command{
     private Shape shape;
-//    private ShapeDTO data;
     private String oldColor;
 
     public Recolor(@JsonProperty("Data")ShapeDTO data) {
-        super.data = data;
+        this.data = data;
     }
 
     @Override

@@ -9,12 +9,11 @@ import com.oop_paint.shapes.ShapeDTO;
 public class Move extends Command{
 
     private Shape shape;
-//    private ShapeDTO data;
     private int oldX;
     private int oldY;
 
     public Move(ShapeDTO data) {
-        super.data = data;
+        this.data = data;
         Database database = Database.getInstance();
         shape = database.getShape(data.id);
     }

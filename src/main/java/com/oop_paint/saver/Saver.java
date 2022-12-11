@@ -24,6 +24,7 @@ public class Saver {
         database.setCurrentShapes(data.getCurrentShapes());
         database.setRedoStack(data.getRedoStack());
         database.setUndoStack(data.getUndoStack());
+        database.setIdCounter(data.getIdCounter());
     }
     public Object loadStage() throws IOException {
         File file = new File(path);

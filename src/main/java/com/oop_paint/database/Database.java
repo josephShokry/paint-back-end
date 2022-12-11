@@ -18,9 +18,10 @@ public class Database {
     private Stack<Command> redoStack = new Stack<>();
 
     private HashMap<String, Shape> currentShapes = new HashMap<>();
+    private int idCounter = 0;
     @JsonIgnore
     private static Database database = null;
-    private static int idCounter = 0;
+
 
     private Database() {
     }
@@ -146,5 +147,21 @@ public class Database {
 
     public void setCurrentShapes(HashMap<String, Shape> currentShapes) {
         this.currentShapes = currentShapes;
+    }
+
+    public int getIdCounter() {
+        return idCounter;
+    }
+
+    public void setIdCounter(int idCounter) {
+        this.idCounter = idCounter;
+    }
+
+    public static Database getDatabase() {
+        return database;
+    }
+
+    public static void setDatabase(Database database) {
+        Database.database = database;
     }
 }

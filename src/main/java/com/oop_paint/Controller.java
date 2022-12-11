@@ -36,10 +36,9 @@ public class Controller {
     public void save(@RequestBody ShapeDTO shapeDTO) throws IOException {
         paint.save(shapeDTO);
     }
-    @GetMapping("/load")
-    public Object load(@RequestBody ShapeDTO shapeDTO) throws IOException {
-        //TODO return the stage and get stage
-        return paint.load(shapeDTO);
+    @GetMapping("/load/{path}")
+    public Object load(@PathVariable String path) throws IOException {
+        return paint.load(path);
     }
     @PostMapping("/get")
     public void printt(@RequestBody ShapeDTO object){

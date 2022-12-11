@@ -32,7 +32,7 @@ public class Paint {
     public void save(ShapeDTO shapeDTO) throws IOException {
         database.save(shapeDTO);
     }
-    public Object load(ShapeDTO shapeDTO) throws IOException {
-        return database.load((shapeDTO.path));
+    public Object load(String path) throws IOException {
+        return database.load((path));
     }
 }

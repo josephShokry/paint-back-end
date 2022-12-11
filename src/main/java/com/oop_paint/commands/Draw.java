@@ -13,10 +13,9 @@ import com.oop_paint.shapes.ShapeFactory;
 @JsonIgnoreProperties("attributes")
 public class Draw extends Command{
     private Shape shape;
-//    private ShapeDTO data;
 
     public Draw(@JsonProperty("shapeDTO")ShapeDTO data) {
-        super.data = data;
+        this.data = data;
     }
 
     @Override
