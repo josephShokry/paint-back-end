@@ -15,6 +15,9 @@ public class Saver {
     public void save() throws IOException {
         mapper.writeValue(new File(path),database);
     }
+    public void saveStage(Object stage) throws IOException {
+        mapper.writeValue(new File(path),stage);
+    }
     public void load() throws IOException {
         File file = new File(path);
         Database data = (Database) mapper.readValue(file, Database.class);

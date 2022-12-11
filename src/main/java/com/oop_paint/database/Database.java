@@ -65,7 +65,7 @@ public class Database {
         System.out.println(path);
         SaverFactory saverFactory = new SaverFactory(path);
         Saver saver = saverFactory.getSaver();
-        saver.save();
+        saver.saveStage(stage);
     }
     public Object load(String path) throws IOException {
         this.clear();
