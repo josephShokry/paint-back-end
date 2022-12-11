@@ -17,6 +17,8 @@ public class Recolor implements Command{
 
     public Recolor(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;
+        Database database = Database.getInstance();
+        this.shape = database.getShape(data.id);
     }
 
     @Override
@@ -31,8 +33,6 @@ public class Recolor implements Command{
 
     @Override
     public void execute() {
-        Database database = Database.getInstance();
-        shape = database.getShape(data.id);
         oldColor = shape.getColor();
         shape.setColor(data.color);
     }

@@ -15,7 +15,7 @@ import com.oop_paint.database.Database;
         @JsonSubTypes.Type(value = SegmentLine.class, name = "segmentline")
 })
 @JsonIgnoreProperties(value = "attributes",ignoreUnknown = true)
-public abstract class Shape {
+public abstract class Shape implements Cloneable {
     private int x;
     private int y;
     private String id;
@@ -56,6 +56,10 @@ public abstract class Shape {
     public abstract void setAttributes(ShapeDTO shapeDTO);
 
     public abstract Object getAttributes();
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public void draw(){
         Database database = Database.getInstance();

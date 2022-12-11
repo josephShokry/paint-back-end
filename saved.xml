@@ -1,0 +1,63 @@
+<Database>
+    <undoStack>
+        <undoStack _type="Draw">
+            <shape _type="circle">
+                <x>5</x>
+                <y>5</y>
+                <id>s4</id>
+                <color>yellow</color>
+                <radius>20</radius>
+            </shape>
+            <data>
+                <id>s4</id>
+                <x>5</x>
+                <y>5</y>
+                <radius>20</radius>
+                <radiusX>0</radiusX>
+                <radiusY>0</radiusY>
+                <width>0</width>
+                <height>0</height>
+                <color>red</color>
+                <shapeType>circle</shapeType>
+                <commandType>draw</commandType>
+                <path/>
+                <attributes/>
+            </data>
+        </undoStack>
+        <undoStack _type="Recolor">
+            <shape _type="circle">
+                <x>5</x>
+                <y>5</y>
+                <id>s4</id>
+                <color>yellow</color>
+                <radius>20</radius>
+            </shape>
+            <data>
+                <id>s4</id>
+                <x>0</x>
+                <y>0</y>
+                <radius>0</radius>
+                <radiusX>0</radiusX>
+                <radiusY>0</radiusY>
+                <width>0</width>
+                <height>0</height>
+                <color>yellow</color>
+                <shapeType/>
+                <commandType>recolor</commandType>
+                <path/>
+                <attributes/>
+            </data>
+            <oldColor>red</oldColor>
+        </undoStack>
+    </undoStack>
+    <redoStack/>
+    <currentShapes>
+        <s4 _type="circle">
+            <x>5</x>
+            <y>5</y>
+            <id>s4</id>
+            <color>yellow</color>
+            <radius>20</radius>
+        </s4>
+    </currentShapes>
+</Database>

@@ -5,15 +5,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ShapeDTO {
-    public String id;
-    public int x;
-    public int y;
-    public int radius;
-    public int radiusX;
-    public int radiusY;
-    public int width;
-    public int height;
+    public int x; //for all shapes
+    public int y; //for all shapes
+    public int x2; //for lines
+    public int y2; //for lines
+    public int radius; //for circle
+    public int radiusX; //for ellipse
+    public int radiusY; //for ellipse
+    public int width; //for sharp shapes
+    public int height; //for sharp shapes
 
+    // for all shapes
+    public String id;
+    public String id2; // for clone
     public String color;
     public String shapeType;
     public String commandType;

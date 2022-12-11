@@ -16,6 +16,8 @@ public class Resize implements Command{
     private int oldRadius;
     private int oldWidth;
     private int oldHeight;
+    private int oldX2;
+    private int oldY2;
     private int temporary;
     private int []attributes;
 
@@ -50,6 +52,15 @@ public class Resize implements Command{
             this.oldRadiusY = this.data.radiusY;
             this.data.radiusY = this.temporary;
         }
+        else if(shapeType.equalsIgnoreCase("segmentline")){
+            this.temporary = this.oldX2;
+            this.oldX2 = this.data.x2;
+            this.data.x2 = this.temporary;
+
+            this.temporary = this.oldY2;
+            this.oldY2 = this.data.y2;
+            this.data.y2 = this.temporary;
+        }
         this.shape.setAttributes(this.data);
     }
 
@@ -65,6 +76,10 @@ public class Resize implements Command{
         else if(shapeType.equalsIgnoreCase("ellipse")){
             this.data.radiusX = this.oldRadiusX;
             this.data.radiusY = this.oldRadiusY;
+        }
+        else if(shapeType.equalsIgnoreCase("segmentline")){
+            this.data.x2 = this.oldX2;
+            this.data.y2 = this.oldY2;
         }
         this.shape.setAttributes(this.data);
     }
@@ -92,8 +107,17 @@ public class Resize implements Command{
             this.oldRadiusY = this.attributes[1];
             shape.setAttributes(this.data);
         }
+        else if(shapeType.equalsIgnoreCase("segmentline")){
+            attributes = new int[2];
+            attributes = (int[]) shape.getAttributes();
+            this.oldX2 = this.attributes[0];
+            this.oldY2 = this.attributes[1];
+            shape.setAttributes(this.data);
+        }
     }
-/////getter and setter for the saver
+
+
+    //getter and setter for the saver
 
     public Shape getShape() {
         return shape;

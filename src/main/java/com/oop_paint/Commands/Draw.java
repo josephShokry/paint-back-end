@@ -21,7 +21,6 @@ public class Draw implements Command{
 
     @Override
     public void undo() {
-        Database database = Database.getInstance();
         shape.delete();
     }
 

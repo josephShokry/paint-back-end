@@ -11,8 +11,8 @@ import java.io.IOException;
 
 @RestController
 public class Controller {
-    Paint paint = new Paint();
-    Database database = Database.getInstance();
+    private final Paint paint = new Paint();
+    private final Database database = Database.getInstance();
     @PostMapping("/draw")
     public void draw(@RequestBody ShapeDTO shapeDTO){
         paint.draw(shapeDTO);
