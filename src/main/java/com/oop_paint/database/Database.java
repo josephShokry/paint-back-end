@@ -27,11 +27,12 @@ public class Database {
         if(database == null) database = new Database();
         return database;
     }
-    public void undo(){
+    public Command undo(){
         Command command = undoStack.peek();
         redoStack.push(command);
         undoStack.pop();
         command.undo();
+        return command;
     }
     public void redo(){
         Command command = redoStack.peek();

@@ -1,12 +1,9 @@
 package com.oop_paint;
 
+import com.oop_paint.commands.Command;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.ShapeDTO;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -18,14 +15,14 @@ public class Controller {
     @PostMapping("/draw")
     public void draw(@RequestBody ShapeDTO shapeDTO){
         //TODO return the id of the created shape
-        paint.draw( shapeDTO);
+        paint.draw(shapeDTO);
         System.out.println(database.toString());
     }
-    @PostMapping("/undo")
-    public void undo(){
+    @GetMapping("/undo")
+    public Command undo(){
         //TODO send the whole object after undo
-        paint.undo();
         System.out.println(database.toString());
+        return paint.undo();
     }
     @PostMapping("/redo")
     public void redo(){

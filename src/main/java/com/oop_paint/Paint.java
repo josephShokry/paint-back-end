@@ -15,8 +15,8 @@ public class Paint {
         database.addCommand(command);
         command.execute();
     }
-    public void undo(){
-        database.undo();
+    public Command undo(){
+        return database.undo();
     }
     public void redo(){
         database.redo();

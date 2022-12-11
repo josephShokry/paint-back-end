@@ -5,8 +5,8 @@ public class ShapeFactory {
         switch (shapeType){
             case "Circle": return new Circle();
             case "square": return new Square();
-            case "rectangle": return new Rectangle();
-            case "ellipse": return new Ellipse();
+            case "Rect": return new Rectangle();
+            case "Ellipse": return new Ellipse();
             default:return null;
         }
     }

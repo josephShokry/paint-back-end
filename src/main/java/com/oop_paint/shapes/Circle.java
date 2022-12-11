@@ -22,7 +22,7 @@ public class Circle extends Shape {
     }
     @Override
     public void setAttributes(ShapeDTO shapeDTO){
-        radius = shapeDTO.attrs.radius;
+        radius = shapeDTO.radius;
     }
 
     @Override
