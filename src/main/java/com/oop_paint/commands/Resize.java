@@ -7,7 +7,7 @@ import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 
 @JsonTypeName("Resize")
-public class Resize implements Command{
+public class Resize extends Command{
     private Shape shape;
     private ShapeDTO data;
     private String shapeType;
@@ -88,7 +88,7 @@ public class Resize implements Command{
     public void execute() {
         Database database = Database.getInstance();
         shape = database.getShape(data.id);
-        shapeType = data.shapeType;
+        shapeType = data.className;
         if(shapeType.equalsIgnoreCase("circle")){
             this.oldRadius = (int) shape.getAttributes();
             shape.setAttributes(this.data);

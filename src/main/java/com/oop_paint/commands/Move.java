@@ -6,10 +6,9 @@ import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 
 @JsonTypeName("Move")
-public class Move implements Command{
+public class Move extends Command{
 
     private Shape shape;
-    private ShapeDTO data;
     private int oldX;
     private int oldY;
 

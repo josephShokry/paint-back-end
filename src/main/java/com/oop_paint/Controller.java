@@ -2,31 +2,33 @@ package com.oop_paint;
 
 import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.ShapeDTO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.oop_paint.Commands.Command;
+import com.oop_paint.Database.Database;
+import com.oop_paint.Shapes.ShapeDTO;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.io.IOException;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
     private final Paint paint = new Paint();
     private final Database database = Database.getInstance();
     @PostMapping("/draw")
-    public void draw(@RequestBody ShapeDTO shapeDTO){
-        paint.draw(shapeDTO);
+    public ShapeDTO draw(@RequestBody ShapeDTO shapeDTO){
         System.out.println(database.toString());
+        return paint.draw(shapeDTO);
     }
-    @PostMapping("/undo")
-    public void undo(){
-        paint.undo();
+    @GetMapping("/undo")
+    public ShapeDTO undo(){
         System.out.println(database.toString());
+        return paint.undo();
     }
-    @PostMapping("/redo")
-    public void redo(){
-        paint.redo();
+    @GetMapping("/redo")
+    public ShapeDTO redo(){
         System.out.println(database.toString());
+        return paint.redo();
     }
     @PutMapping("/update")
     public void update(@RequestBody ShapeDTO shapeDTO){
@@ -37,8 +39,13 @@ public class Controller {
     public void save(@RequestBody ShapeDTO shapeDTO) throws IOException {
         paint.save(shapeDTO);
     }
-    @PostMapping("/load")
-    public void load(@RequestBody ShapeDTO shapeDTO) throws IOException {
-        paint.load(shapeDTO);
+    @GetMapping("/load/{path}")
+    public Object load(@PathVariable String path) throws IOException {
+        return paint.load(path);
+    }
+    @PostMapping("/get")
+    public void printt(@RequestBody ShapeDTO object){
+        ShapeDTO ldjf = object;
+        System.out.println(object.toString());
     }
 }

@@ -7,10 +7,8 @@ import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 
 @JsonTypeName("Recolor")
-//@JsonPropertyOrder({"data","shape","oldColor"})
-public class Recolor implements Command{
+public class Recolor extends Command{
     private Shape shape;
-    private ShapeDTO data;
     private String oldColor;
 
     public Recolor(@JsonProperty("Data")ShapeDTO data) {
@@ -26,13 +24,13 @@ public class Recolor implements Command{
 
     @Override
     public void redo() {
-        shape.setColor(data.color);
+        shape.setColor(data.fill);
     }
 
     @Override
     public void execute() {
         oldColor = shape.getColor();
-        shape.setColor(data.color);
+        shape.setColor(data.fill);
     }
 
     public Shape getShape() {
