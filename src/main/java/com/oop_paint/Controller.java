@@ -13,9 +13,9 @@ public class Controller {
     Paint paint = new Paint();
     Database database = Database.getInstance();
     @PostMapping("/draw")
-    public void draw(@RequestBody ShapeDTO shapeDTO){
-        paint.draw(shapeDTO);
+    public ShapeDTO draw(@RequestBody ShapeDTO shapeDTO){
         System.out.println(database.toString());
+        return paint.draw(shapeDTO);
     }
     @GetMapping("/undo")
     public ShapeDTO undo(){

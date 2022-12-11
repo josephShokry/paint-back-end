@@ -11,7 +11,7 @@ public class Delete extends Command {
 //    private ShapeDTO data;
 
     public Delete(@JsonProperty("Data")ShapeDTO data) {
-//        super.data = data;
+        super.data = data;
     }
 
     @Override
