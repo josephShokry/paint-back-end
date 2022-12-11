@@ -1,9 +1,9 @@
 package com.oop_paint;
 
-import com.oop_paint.commands.Command;
-import com.oop_paint.commands.CommandFactory;
-import com.oop_paint.database.Database;
-import com.oop_paint.shapes.ShapeDTO;
+import com.oop_paint.Commands.Command;
+import com.oop_paint.Commands.CommandFactory;
+import com.oop_paint.Database.Database;
+import com.oop_paint.Shapes.ShapeDTO;
 
 import java.io.IOException;
 

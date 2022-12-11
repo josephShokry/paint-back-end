@@ -1,7 +1,7 @@
 package com.oop_paint;
 
-import com.oop_paint.database.Database;
-import com.oop_paint.shapes.ShapeDTO;
+import com.oop_paint.Database.Database;
+import com.oop_paint.Shapes.ShapeDTO;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

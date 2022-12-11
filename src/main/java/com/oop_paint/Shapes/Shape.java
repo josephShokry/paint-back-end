@@ -1,9 +1,9 @@
-package com.oop_paint.shapes;
+package com.oop_paint.Shapes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.oop_paint.database.Database;
+import com.oop_paint.Database.Database;
 
 //@JsonIgnoreProperties(ignoreUnknown = true, value = {"attributes"})
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY, visible = true)

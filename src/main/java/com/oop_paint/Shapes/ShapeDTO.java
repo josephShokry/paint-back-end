@@ -1,7 +1,6 @@
-package com.oop_paint.shapes;
+package com.oop_paint.Shapes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ShapeDTO {

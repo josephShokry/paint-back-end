@@ -1,9 +1,11 @@
-package com.oop_paint.commands;
+package com.oop_paint.Commands;
 
-import com.oop_paint.database.Database;
-import com.oop_paint.shapes.SegmentLine;
-import com.oop_paint.shapes.Shape;
-import com.oop_paint.shapes.ShapeDTO;
+
+import com.oop_paint.Database.Database;
+import com.oop_paint.Shapes.SegmentLine;
+import com.oop_paint.Shapes.Shape;
+import com.oop_paint.Shapes.ShapeDTO;
+
 
 public class Clone implements Command, Cloneable{
     private Shape protoTypicalShape;

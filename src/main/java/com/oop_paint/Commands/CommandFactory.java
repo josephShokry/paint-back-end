@@ -1,6 +1,6 @@
-package com.oop_paint.commands;
+package com.oop_paint.Commands;
 
-import com.oop_paint.shapes.ShapeDTO;
+import com.oop_paint.Shapes.ShapeDTO;
 
 public class CommandFactory {
     public Command getCommand(ShapeDTO shapeDTO){

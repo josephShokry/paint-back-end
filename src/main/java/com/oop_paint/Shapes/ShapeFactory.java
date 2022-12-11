@@ -1,4 +1,4 @@
-package com.oop_paint.shapes;
+package com.oop_paint.Shapes;
 
 public class ShapeFactory {
     public Shape getShape(String shapeType){

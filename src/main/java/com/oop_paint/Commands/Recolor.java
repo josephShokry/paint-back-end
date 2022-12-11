@@ -1,12 +1,10 @@
-package com.oop_paint.commands;
+package com.oop_paint.Commands;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.oop_paint.database.Database;
-import com.oop_paint.shapes.Shape;
-import com.oop_paint.shapes.ShapeDTO;
+import com.oop_paint.Database.Database;
+import com.oop_paint.Shapes.Shape;
+import com.oop_paint.Shapes.ShapeDTO;
 
 @JsonTypeName("Recolor")
 //@JsonPropertyOrder({"data","shape","oldColor"})
