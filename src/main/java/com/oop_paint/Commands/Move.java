@@ -19,6 +19,8 @@ public class Move extends Command{
 
     @Override
     public void undo() {
+        Database database = Database.getInstance();
+        shape = database.getShape(data.id);
         shape.setX(this.oldX);
         shape.setY(this.oldY);
         oldX = data.x;
@@ -29,6 +31,8 @@ public class Move extends Command{
 
     @Override
     public void redo() {
+        Database database = Database.getInstance();
+        shape = database.getShape(data.id);
         shape.setX(oldX);
         shape.setY(oldY);
         oldX = data.x;
@@ -45,5 +49,29 @@ public class Move extends Command{
         oldY = shape.getY();
         shape.setX(data.x);
         shape.setY(data.y);
+    }
+//setters and getters
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
+    public double getOldX() {
+        return oldX;
+    }
+
+    public void setOldX(double oldX) {
+        this.oldX = oldX;
+    }
+
+    public double getOldY() {
+        return oldY;
+    }
+
+    public void setOldY(double oldY) {
+        this.oldY = oldY;
     }
 }

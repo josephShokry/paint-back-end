@@ -43,4 +43,20 @@ public class Clone extends Command implements Cloneable{
         this.data.commandType = "clone";
         this.data.className = clonedShape.getClass().getSimpleName();
     }
+
+    public Shape getProtoTypicalShape() {
+        return protoTypicalShape;
+    }
+
+    public void setProtoTypicalShape(Shape protoTypicalShape) {
+        this.protoTypicalShape = protoTypicalShape;
+    }
+
+    public Shape getClonedShape() {
+        return clonedShape;
+    }
+
+    public void setClonedShape(Shape clonedShape) {
+        this.clonedShape = clonedShape;
+    }
 }

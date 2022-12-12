@@ -25,8 +25,8 @@ public class PaintService {
     }
     public void update(ShapeDTO shapeDTO){
         Command command = commandFactory.getCommand(shapeDTO);
-        database.addCommand(command);
         command.execute();
+        database.addCommand(command);
         database.clearRedoStack();
     }
     public void save(ShapeDTO shapeDTO) throws IOException {

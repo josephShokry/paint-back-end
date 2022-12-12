@@ -102,4 +102,20 @@ public class Resize extends Command {
     public void setStrokeWidth(double strokeWidth) {
         this.oldStrokeWidth = strokeWidth;
     }
+
+    public double getOldStrokeWidth() {
+        return oldStrokeWidth;
+    }
+
+    public void setOldStrokeWidth(double oldStrokeWidth) {
+        this.oldStrokeWidth = oldStrokeWidth;
+    }
+
+    public double getOldRotation() {
+        return oldRotation;
+    }
+
+    public void setOldRotation(double oldRotation) {
+        this.oldRotation = oldRotation;
+    }
 }
