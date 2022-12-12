@@ -18,6 +18,8 @@ import com.oop_paint.database.Database;
 public abstract class Shape {
     private int x;
     private int y;
+    private int scaleX;
+    private int scaleY;
     private String id;
     private String color;
 
@@ -51,6 +53,22 @@ public abstract class Shape {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getScaleX() {
+        return scaleX;
+    }
+
+    public void setScaleX(int scaleX) {
+        this.scaleX = scaleX;
+    }
+
+    public int getScaleY() {
+        return scaleY;
+    }
+
+    public void setScaleY(int scaleY) {
+        this.scaleY = scaleY;
     }
 
     public abstract void setAttributes(ShapeDTO shapeDTO);

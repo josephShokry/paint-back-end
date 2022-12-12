@@ -33,9 +33,9 @@ public class Database {
     public ShapeDTO undo(){
         try {
             Command command = undoStack.peek();
-            redoStack.push(command);
             undoStack.pop();
             command.undo();
+            redoStack.push(command);
             return command.data;
         }
         catch (Exception e){

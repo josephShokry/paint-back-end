@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(value = JsonInclude.Include.NON_DEFAULT)
 public class ShapeDTO {
 
     public int x;
     public int y;
+    public int oldX;
+    public int oldY;
     public int radius;
     public int radiusX;
     public int radiusY;

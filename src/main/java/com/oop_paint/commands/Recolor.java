@@ -1,8 +1,6 @@
 package com.oop_paint.commands;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
@@ -20,11 +18,15 @@ public class Recolor extends Command{
     @Override
     public void undo() {
         shape.setColor(oldColor);
+        oldColor = data.fill;
+        data.fill = shape.getColor();
     }
 
     @Override
     public void redo() {
-        shape.setColor(data.fill);
+        shape.setColor(oldColor);
+        oldColor = data.fill;
+        data.fill = shape.getColor();
     }
 
     @Override

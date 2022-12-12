@@ -22,4 +22,9 @@ public abstract class Command {
     public void setData(ShapeDTO data){
         this.data = data;
     }
+    public void swap(Object first, Object second){
+        Object temp = first;
+        first = second;
+        second = temp;
+    }
 }
