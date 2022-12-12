@@ -1,9 +1,13 @@
 package com.oop_paint.commands;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.oop_paint.database.Database;
 import com.oop_paint.shapes.Shape;
 import com.oop_paint.shapes.ShapeDTO;
+
+import javax.xml.stream.events.DTD;
 
 public class Delete extends Command {
 
@@ -16,6 +20,8 @@ public class Delete extends Command {
     @Override
     public void undo() {
         shape.draw();
+        //TODO we have to get the data form the shape to the DTO
+        data = shape.toDTO();
     }
 
     @Override

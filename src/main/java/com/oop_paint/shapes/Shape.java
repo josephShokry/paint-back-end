@@ -3,6 +3,8 @@ package com.oop_paint.shapes;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.oop_paint.database.Database;
 
 //@JsonIgnoreProperties(ignoreUnknown = true, value = {"attributes"})
@@ -21,7 +23,7 @@ public abstract class Shape {
     private int scaleX;
     private int scaleY;
     private String id;
-    private String color;
+    private String fill;
 
     public int getX() {
         return x;
@@ -39,12 +41,12 @@ public abstract class Shape {
         this.y = y;
     }
 
-    public String getColor() {
-        return color;
+    public String getFill() {
+        return fill;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setFill(String fill) {
+        this.fill = fill;
     }
 
     public String getId() {
@@ -89,7 +91,17 @@ public abstract class Shape {
         return "Shape{" +
                 "x=" + x +
                 ", y=" + y +
-                ", color='" + color + '\'' +
+                ", fill='" + fill + '\'' +
                 '}';
+    }
+    public ShapeDTO toDTO(){
+        ObjectMapper mapper = new JsonMapper();
+        String json = null;
+        try {
+            json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
+            return mapper.readValue(json, ShapeDTO.class);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

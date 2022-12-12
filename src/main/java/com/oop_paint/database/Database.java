@@ -31,16 +31,16 @@ public class Database {
         return database;
     }
     public ShapeDTO undo(){
-        try {
+//        try {
             Command command = undoStack.peek();
             undoStack.pop();
             command.undo();
             redoStack.push(command);
             return command.data;
-        }
-        catch (Exception e){
-            return null;
-        }
+//        }
+//        catch (Exception e){
+//            return null;
+//        }
     }
     public ShapeDTO redo(){
         try {
@@ -83,10 +83,12 @@ public class Database {
         return saver.loadStage();
     }
     public String addShape(Shape shape){
-        String id = "s"+idCounter++;
-        shape.setId(id);
+        if(shape.getId()==null){
+            String id = "s"+idCounter++;
+            shape.setId(id);
+        }
         currentShapes.put(shape.getId(),shape);
-        return id;
+        return shape.getId();
     }
     public void deleteShape(String id){
         currentShapes.remove(id);
@@ -100,9 +102,6 @@ public class Database {
     }
 
     private void clear(){
-//        undoStack.clear();
-//        redoStack.clear();
-//        currentShapes.clear();
         clearUndoStack();
         clearRedoStack();
         clearShapesList();

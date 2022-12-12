@@ -6,11 +6,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class Circle extends Shape {
     private int radius;
     public Circle(int x, int y, String color, int radius, String id) {
-
         //todo function to set att of the super
         super.setX(x);
         super.setY(y);
-        super.setColor(color);
+        super.setFill(color);
         super.setId(id);
         this.radius = radius;
     }

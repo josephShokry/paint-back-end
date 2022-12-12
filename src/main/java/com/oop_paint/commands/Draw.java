@@ -36,7 +36,7 @@ public class Draw extends Command{
         //todo add the dto to the factory
         shape.setX(data.x);
         shape.setY(data.y);
-        shape.setColor(data.fill);
+        shape.setFill(data.fill);
         shape.setAttributes(data);
         shape.draw();
         data.id = shape.getId();

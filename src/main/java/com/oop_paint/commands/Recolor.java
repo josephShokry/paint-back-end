@@ -17,24 +17,24 @@ public class Recolor extends Command{
 
     @Override
     public void undo() {
-        shape.setColor(oldColor);
+        shape.setFill(oldColor);
         oldColor = data.fill;
-        data.fill = shape.getColor();
+        data.fill = shape.getFill();
     }
 
     @Override
     public void redo() {
-        shape.setColor(oldColor);
+        shape.setFill(oldColor);
         oldColor = data.fill;
-        data.fill = shape.getColor();
+        data.fill = shape.getFill();
     }
 
     @Override
     public void execute() {
         Database database = Database.getInstance();
         shape = database.getShape(data.id);
-        oldColor = shape.getColor();
-        shape.setColor(data.fill);
+        oldColor = shape.getFill();
+        shape.setFill(data.fill);
     }
 
     public Shape getShape() {

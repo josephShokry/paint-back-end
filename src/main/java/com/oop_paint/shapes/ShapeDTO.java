@@ -26,4 +26,5 @@ public class ShapeDTO {
     public String className;
 
     public Object stage;
+
 }

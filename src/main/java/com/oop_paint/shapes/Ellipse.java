@@ -14,7 +14,7 @@ public class Ellipse extends Shape{
         //todo function to set att of the super
         super.setX(x);
         super.setY(y);
-        super.setColor(color);
+        super.setFill(color);
         super.setId(id);
         this.radiusX = radiusX;
         this.radiusY = radiusY;
