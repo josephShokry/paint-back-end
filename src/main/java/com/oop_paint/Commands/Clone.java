@@ -1,17 +1,19 @@
 package com.oop_paint.Commands;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 
 
 
-
+@JsonTypeName("Clone")
 public class Clone extends Command implements Cloneable{
     private Shape protoTypicalShape;
     private Shape clonedShape;
 
-    public Clone(ShapeDTO data) {
+    public Clone(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;
     }
 

@@ -18,11 +18,13 @@ public class ShapeDTO {
     public double height; //for sharp shapes
     public double scaleX;
     public double scaleY;
+    public double strokeWidth;
 
     // for all shapes
     public String id;
     public String id2; // for clone
     public String fill;
+    public String stroke;
 
     public String commandType;
     public String path;

@@ -11,6 +11,7 @@ public class Resize extends Command {
     private Shape shape;
     private double oldScaleX;
     private double oldScaleY;
+    private double strokeWidth;
     public Resize(@JsonProperty("Data") ShapeDTO data) {
         this.data = data;
     }
@@ -23,7 +24,6 @@ public class Resize extends Command {
         oldScaleY = data.scaleY;
         data.scaleX = shape.getScaleX();
         data.scaleY = shape.getScaleY();
-
     }
     @Override
     public void redo() {
@@ -42,5 +42,38 @@ public class Resize extends Command {
         oldScaleY = shape.getScaleY();
         shape.setScaleX(data.scaleX);
         shape.setScaleY(data.scaleY);
+    }
+
+    //getter and setters
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
+    public double getOldScaleX() {
+        return oldScaleX;
+    }
+
+    public void setOldScaleX(double oldScaleX) {
+        this.oldScaleX = oldScaleX;
+    }
+
+    public double getOldScaleY() {
+        return oldScaleY;
+    }
+
+    public void setOldScaleY(double oldScaleY) {
+        this.oldScaleY = oldScaleY;
+    }
+
+    public double getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public void setStrokeWidth(double strokeWidth) {
+        this.strokeWidth = strokeWidth;
     }
 }

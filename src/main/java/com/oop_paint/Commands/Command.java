@@ -12,7 +12,8 @@ import com.oop_paint.Shapes.ShapeDTO;
         @JsonSubTypes.Type(value = Recolor.class, name = "Recolor"),
         @JsonSubTypes.Type(value = Delete.class, name = "Delete"),
         @JsonSubTypes.Type(value = Move.class, name = "Move"),
-        @JsonSubTypes.Type(value = Resize.class, name = "Resize")
+        @JsonSubTypes.Type(value = Resize.class, name = "Resize"),
+        @JsonSubTypes.Type(value = Clone.class, name = "Clone")
 })
 public abstract class Command {
     public ShapeDTO data = null;
