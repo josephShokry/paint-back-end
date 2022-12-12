@@ -57,8 +57,8 @@ public abstract class Shape implements Cloneable {
             return null;
         }
     }
-    //getters and setters
 
+    //getters and setters
     public double getX() {
         return x;
     }

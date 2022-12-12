@@ -18,6 +18,7 @@ public class Delete extends Command {
         shape.draw();
         //TODO we have to get the data form the shape to the DTO
         data = shape.toDTO();
+        data.className = shape.getClass().getSimpleName();
     }
 
     @Override
@@ -32,7 +33,6 @@ public class Delete extends Command {
         shape.delete();
     }
     //getter and setters for saver
-
     public Shape getShape() {
         return shape;
     }

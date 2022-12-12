@@ -39,5 +39,6 @@ public class Clone extends Command implements Cloneable{
         clonedShape.draw();
         this.data = clonedShape.toDTO();
         this.data.commandType = "clone";
+        this.data.className = clonedShape.getClass().getSimpleName();
     }
 }
