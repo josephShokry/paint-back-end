@@ -2,8 +2,6 @@ package com.oop_paint.Saver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oop_paint.Database.Database;
-
-
 import java.io.File;
 import java.io.IOException;
 

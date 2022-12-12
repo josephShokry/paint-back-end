@@ -9,8 +9,8 @@ import com.oop_paint.Shapes.ShapeDTO;
 @JsonTypeName("Resize")
 public class Resize extends Command {
     private Shape shape;
-    private int oldScaleX;
-    private int oldScaleY;
+    private double oldScaleX;
+    private double oldScaleY;
     public Resize(@JsonProperty("Data") ShapeDTO data) {
         this.data = data;
     }

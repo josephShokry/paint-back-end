@@ -1,25 +1,23 @@
 package com.oop_paint.Shapes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_DEFAULT)
 public class ShapeDTO {
-    public int x; //for all shapes
-    public int y; //for all shapes
-    public int x2; //for lines
-    public int y2; //for lines
-    public int radius; //for circle
-    public int radiusX; //for ellipse
-    public int radiusY; //for ellipse
-    public int width; //for sharp shapes
-    public int height; //for sharp shapes
-    public int scaleX;
-    public int scaleY;
+    public double x; //for all shapes
+    public double y; //for all shapes
+    public double x2; //for lines
+    public double y2; //for lines
+    public double radius; //for circle
+    public double radiusX; //for ellipse
+    public double radiusY; //for ellipse
+    public double width; //for sharp shapes
+    public double height; //for sharp shapes
+    public double scaleX;
+    public double scaleY;
 
     // for all shapes
     public String id;

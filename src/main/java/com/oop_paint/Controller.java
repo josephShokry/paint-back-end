@@ -1,15 +1,14 @@
 package com.oop_paint;
-import com.oop_paint.Commands.Command;
+
 import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.ShapeDTO;
 import org.springframework.web.bind.annotation.*;
-
 import java.io.IOException;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
-    private final Paint paint = new Paint();
+    private final PaintService paint = new PaintService();
     private final Database database = Database.getInstance();
     @PostMapping("/draw")
     public ShapeDTO draw(@RequestBody ShapeDTO shapeDTO){
@@ -38,5 +37,12 @@ public class Controller {
     @GetMapping("/load/{path}")
     public Object load(@PathVariable String path) throws IOException {
         return paint.load(path);
+    }
+    @GetMapping("/clone/{id}")
+    public ShapeDTO clone(@PathVariable String id){
+        ShapeDTO dto = new ShapeDTO();
+        dto.id = id;
+        dto.commandType = "clone";
+        return paint.draw(dto);
     }
 }

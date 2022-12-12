@@ -1,7 +1,6 @@
 package com.oop_paint.Commands;
 
 import com.oop_paint.Database.Database;
-import com.oop_paint.Shapes.SegmentLine;
 import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 
@@ -11,19 +10,9 @@ import com.oop_paint.Shapes.ShapeDTO;
 public class Clone extends Command implements Cloneable{
     private Shape protoTypicalShape;
     private Shape clonedShape;
-    private ShapeDTO data;
-    Database database = Database.getInstance();
 
     public Clone(ShapeDTO data) {
         this.data = data;
-        protoTypicalShape = database.getShape(data.id);
-        try {
-            clonedShape = (Shape) protoTypicalShape.clone();
-            clonedShape.setId(this.data.id2);
-        }
-        catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -38,6 +27,17 @@ public class Clone extends Command implements Cloneable{
 
     @Override
     public void execute() {
+        Database database = Database.getInstance();
+        protoTypicalShape = database.getShape(data.id);
+        try {
+            clonedShape = (Shape) protoTypicalShape.clone();
+            clonedShape.setId(null);
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         clonedShape.draw();
+        this.data = clonedShape.toDTO();
+        this.data.commandType = "clone";
     }
 }

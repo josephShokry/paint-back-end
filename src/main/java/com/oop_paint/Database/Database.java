@@ -1,15 +1,11 @@
 package com.oop_paint.Database;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.oop_paint.Commands.Command;
 import com.oop_paint.Saver.Saver;
 import com.oop_paint.Saver.SaverFactory;
 import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
-
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Stack;
@@ -32,16 +28,16 @@ public class Database {
         return database;
     }
     public ShapeDTO undo(){
-//        try {
+        try {
             Command command = undoStack.peek();
             undoStack.pop();
             command.undo();
             redoStack.push(command);
             return command.data;
-//        }
-//        catch (Exception e){
-//            return null;
-//        }
+        }
+        catch (Exception e){
+            return null;
+        }
     }
     public ShapeDTO redo(){
         try {

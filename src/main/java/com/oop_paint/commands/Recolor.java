@@ -9,7 +9,7 @@ import com.oop_paint.Shapes.ShapeDTO;
 @JsonTypeName("Recolor")
 public class Recolor extends Command{
     private Shape shape;
-    private String oldColor;
+    private String oldFill;
 
     public Recolor(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;
@@ -19,15 +19,15 @@ public class Recolor extends Command{
 
     @Override
     public void undo() {
-        shape.setFill(oldColor);
-        oldColor = data.fill;
+        shape.setFill(oldFill);
+        oldFill = data.fill;
         data.fill = shape.getFill();
     }
 
     @Override
     public void redo() {
-        shape.setFill(oldColor);
-        oldColor = data.fill;
+        shape.setFill(oldFill);
+        oldFill = data.fill;
         data.fill = shape.getFill();
     }
 
@@ -35,7 +35,7 @@ public class Recolor extends Command{
     public void execute() {
         Database database = Database.getInstance();
         shape = database.getShape(data.id);
-        oldColor = shape.getFill();
+        oldFill = shape.getFill();
         shape.setFill(data.fill);
     }
 
@@ -55,11 +55,11 @@ public class Recolor extends Command{
         this.data = data;
     }
 
-    public String getOldColor() {
-        return oldColor;
+    public String getOldFill() {
+        return oldFill;
     }
 
-    public void setOldColor(String oldColor) {
-        this.oldColor = oldColor;
+    public void setOldFill(String oldFill) {
+        this.oldFill = oldFill;
     }
 }

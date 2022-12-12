@@ -7,8 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.oop_paint.Database.Database;
 
-
-//@JsonIgnoreProperties(ignoreUnknown = true, value = {"attributes"})
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY, visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Square.class, name = "square"),
@@ -19,69 +17,19 @@ import com.oop_paint.Database.Database;
 })
 @JsonIgnoreProperties(value = "attributes",ignoreUnknown = true)
 public abstract class Shape implements Cloneable {
-    private int x;
-    private int y;
-    private int scaleX;
-    private int scaleY;
+    private double x;
+    private double y;
+    private double scaleX;
+    private double scaleY;
+    private double strokeWidth;
     private String id;
     private String fill;
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public String getFill() {
-        return fill;
-    }
-
-    public void setFill(String fill) {
-        this.fill = fill;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getScaleX() {
-        return scaleX;
-    }
-
-    public void setScaleX(int scaleX) {
-        this.scaleX = scaleX;
-    }
-
-    public int getScaleY() {
-        return scaleY;
-    }
-
-    public void setScaleY(int scaleY) {
-        this.scaleY = scaleY;
-    }
-
-    public abstract void setAttributes(ShapeDTO shapeDTO);
-
+    private String stroke;
     public abstract Object getAttributes();
 
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-
     public void draw(){
         Database database = Database.getInstance();
         this.setId(database.addShape(this));
@@ -109,4 +57,70 @@ public abstract class Shape implements Cloneable {
             return null;
         }
     }
+    //getters and setters
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double getScaleX() {
+        return scaleX;
+    }
+
+    public void setScaleX(double scaleX) {
+        this.scaleX = scaleX;
+    }
+
+    public double getScaleY() {
+        return scaleY;
+    }
+
+    public void setScaleY(double scaleY) {
+        this.scaleY = scaleY;
+    }
+
+    public double getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public void setStrokeWidth(double strokeWidth) {
+        this.strokeWidth = strokeWidth;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getFill() {
+        return fill;
+    }
+
+    public void setFill(String fill) {
+        this.fill = fill;
+    }
+
+    public String getStroke() {
+        return stroke;
+    }
+
+    public void setStroke(String stroke) {
+        this.stroke = stroke;
+    }
+    public abstract void setAttributes(ShapeDTO data);
 }

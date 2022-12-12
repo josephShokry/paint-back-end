@@ -10,8 +10,8 @@ import com.oop_paint.Shapes.ShapeDTO;
 public class Move extends Command{
 
     private Shape shape;
-    private int oldX;
-    private int oldY;
+    private double oldX;
+    private double oldY;
 
     public Move(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;
