@@ -18,6 +18,7 @@ public class ShapeDTO {
     public double height; //for sharp shapes
     public double scaleX;
     public double scaleY;
+    public double rotation;
     public double strokeWidth;
 
     // for all shapes

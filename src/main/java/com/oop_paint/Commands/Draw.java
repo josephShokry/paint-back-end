@@ -34,6 +34,9 @@ public class Draw extends Command{
         shape.setX(data.x);
         shape.setY(data.y);
         shape.setFill(data.fill);
+        shape.setRotation(data.rotation);
+        shape.setStroke(data.stroke);
+        shape.setStrokeWidth(data.strokeWidth);
         shape.setAttributes(data);
         shape.draw();
         data.id = shape.getId();

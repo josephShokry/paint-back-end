@@ -19,6 +19,7 @@ public class Delete extends Command {
         //TODO we have to get the data form the shape to the DTO
         data = shape.toDTO();
         data.className = shape.getClass().getSimpleName();
+        data.commandType = "delete";
     }
 
     @Override

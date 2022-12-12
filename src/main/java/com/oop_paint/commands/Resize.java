@@ -11,7 +11,8 @@ public class Resize extends Command {
     private Shape shape;
     private double oldScaleX;
     private double oldScaleY;
-    private double strokeWidth;
+    private double oldStrokeWidth;
+    private double oldRotation;
     public Resize(@JsonProperty("Data") ShapeDTO data) {
         this.data = data;
     }
@@ -19,20 +20,39 @@ public class Resize extends Command {
     @Override
     public void undo() {
         shape.setScaleX(this.oldScaleX);
-        shape.setScaleY(this.oldScaleY);
         oldScaleX = data.scaleX;
-        oldScaleY = data.scaleY;
         data.scaleX = shape.getScaleX();
+
+        shape.setScaleY(this.oldScaleY);
+        oldScaleY = data.scaleY;
         data.scaleY = shape.getScaleY();
+
+        shape.setStrokeWidth(this.oldStrokeWidth);
+        oldStrokeWidth = data.strokeWidth;
+        data.strokeWidth = shape.getStrokeWidth();
+
+        shape.setRotation(this.oldRotation);
+        oldRotation = data.rotation;
+        data.rotation = shape.getRotation();
     }
     @Override
     public void redo() {
         shape.setScaleX(oldScaleX);
-        shape.setScaleY(oldScaleY);
         oldScaleX = data.scaleX;
-        oldScaleY = data.scaleY;
         data.scaleX = shape.getScaleX();
+
+        shape.setScaleY(oldScaleY);
+        oldScaleY = data.scaleY;
         data.scaleY = shape.getScaleY();
+
+        shape.setStrokeWidth(oldStrokeWidth);
+        oldStrokeWidth = data.strokeWidth;
+        data.strokeWidth = shape.getStrokeWidth();
+
+        shape.setRotation(oldRotation);
+        oldRotation = data.rotation;
+        data.rotation = shape.getRotation();
+
     }
     @Override
     public void execute() {
@@ -40,8 +60,14 @@ public class Resize extends Command {
         shape = database.getShape(data.id);
         oldScaleX = shape.getScaleX();
         oldScaleY = shape.getScaleY();
+        oldRotation = shape.getRotation();
+        oldStrokeWidth = shape.getStrokeWidth();
+
         shape.setScaleX(data.scaleX);
         shape.setScaleY(data.scaleY);
+        shape.setRotation(data.rotation);
+        shape.setStrokeWidth(data.strokeWidth);
+
     }
 
     //getter and setters
@@ -70,10 +96,10 @@ public class Resize extends Command {
     }
 
     public double getStrokeWidth() {
-        return strokeWidth;
+        return oldStrokeWidth;
     }
 
     public void setStrokeWidth(double strokeWidth) {
-        this.strokeWidth = strokeWidth;
+        this.oldStrokeWidth = strokeWidth;
     }
 }
