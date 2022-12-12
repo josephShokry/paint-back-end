@@ -16,6 +16,7 @@ import com.oop_paint.Database.Database;
 })
 @JsonIgnoreProperties(value = "attributes",ignoreUnknown = true)
 public abstract class Shape implements Cloneable {
+    //DTO
     private int x;
     private int y;
     private String id;
@@ -54,6 +55,8 @@ public abstract class Shape implements Cloneable {
     }
 
     public abstract void setAttributes(ShapeDTO shapeDTO);
+
+    public abstract ShapeDTO fillData(ShapeDTO shapeDTO);
 
     public abstract Object getAttributes();
 

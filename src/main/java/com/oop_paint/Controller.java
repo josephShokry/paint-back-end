@@ -13,7 +13,7 @@ import java.io.IOException;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
-    private final Paint paint = new Paint();
+    private final PaintServices paint = new PaintServices();
     private final Database database = Database.getInstance();
     @PostMapping("/draw")
     public ShapeDTO draw(@RequestBody ShapeDTO shapeDTO){

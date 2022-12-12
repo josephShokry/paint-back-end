@@ -13,6 +13,8 @@ public class ShapeDTO {
     public int y; //for all shapes
     public int x2; //for lines
     public int y2; //for lines
+    public int x3; //for triangle
+    public int y3; //for triangle
     public int radius; //for circle
     public int radiusX; //for ellipse
     public int radiusY; //for ellipse

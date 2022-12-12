@@ -56,6 +56,10 @@ public class Ellipse extends Shape{
         super.setY(y);
     }
 
+    public ShapeDTO fillData(ShapeDTO shapeDTO){
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Ellipse{" +

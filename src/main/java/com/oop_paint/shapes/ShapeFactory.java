@@ -8,6 +8,7 @@ public class ShapeFactory {
             case "Rect": return new Rectangle();
             case "Ellipse": return new Ellipse();
             case "segmentline" : return new SegmentLine();
+            case "Line" : return new Triangle();
             default:return null;
         }
     }

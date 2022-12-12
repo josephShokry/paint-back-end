@@ -8,7 +8,7 @@ import com.oop_paint.Shapes.ShapeDTO;
 
 
 
-public class Clone extends Command implements Cloneable{
+public class Clone extends Command{
     private Shape protoTypicalShape;
     private Shape clonedShape;
     private ShapeDTO data;

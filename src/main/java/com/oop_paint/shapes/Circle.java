@@ -35,10 +35,17 @@ public class Circle extends Shape {
     public void setRadius(int radius) {
         this.radius = radius;
     }
+
     //TODO add the logic to the command move
     public void move(int x, int y){
         super.setX(x);
         super.setY(y);
+    }
+
+    public ShapeDTO fillData(ShapeDTO data){
+        data.radius = this.radius;
+        data.x = this.getX();
+        return data;
     }
 
     @Override

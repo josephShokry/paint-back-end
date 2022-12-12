@@ -43,6 +43,11 @@ public class Square extends Shape {
     }
 
     @Override
+    public ShapeDTO fillData(ShapeDTO shapeDTO) {
+        return null;
+    }
+
+    @Override
     public Object getAttributes() {
         this.attributes[0] = this.width;
         this.attributes[1] = this.height;

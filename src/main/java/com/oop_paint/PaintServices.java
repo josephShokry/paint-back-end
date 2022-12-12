@@ -7,7 +7,7 @@ import com.oop_paint.Shapes.ShapeDTO;
 
 import java.io.IOException;
 
-public class Paint {
+public class PaintServices {
     Database database = Database.getInstance();
     CommandFactory commandFactory = new CommandFactory();
     public ShapeDTO draw(ShapeDTO shapeDTO){
