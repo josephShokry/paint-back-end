@@ -2,9 +2,6 @@ package com.oop_paint;
 
 import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.ShapeDTO;
-import com.oop_paint.Commands.Command;
-import com.oop_paint.Database.Database;
-import com.oop_paint.Shapes.ShapeDTO;
 import org.springframework.web.bind.annotation.*;
 
 
