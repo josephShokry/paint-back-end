@@ -1,10 +1,11 @@
-package com.oop_paint.shapes;
+package com.oop_paint.Shapes;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @JsonTypeName("circle")
 public class Circle extends Shape {
     private int radius;
+
     public Circle(int x, int y, String color, int radius, String id) {
         //todo function to set att of the super
         super.setX(x);

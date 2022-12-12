@@ -1,4 +1,4 @@
-package com.oop_paint.shapes;
+package com.oop_paint.Shapes;
 
 public class ShapeFactory {
     public Shape getShape(String shapeType){
@@ -7,6 +7,7 @@ public class ShapeFactory {
             case "square": return new Square();
             case "Rect": return new Rectangle();
             case "Ellipse": return new Ellipse();
+            case "segmentline" : return new SegmentLine();
             default:return null;
         }
     }

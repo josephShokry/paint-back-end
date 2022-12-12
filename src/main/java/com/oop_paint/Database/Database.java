@@ -1,13 +1,14 @@
-package com.oop_paint.database;
+package com.oop_paint.Database;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.oop_paint.commands.Command;
-import com.oop_paint.saver.Saver;
-import com.oop_paint.saver.SaverFactory;
-import com.oop_paint.shapes.Shape;
-import com.oop_paint.shapes.ShapeDTO;
+import com.oop_paint.Commands.Command;
+import com.oop_paint.Saver.Saver;
+import com.oop_paint.Saver.SaverFactory;
+import com.oop_paint.Shapes.Shape;
+import com.oop_paint.Shapes.ShapeDTO;
+
 
 import java.io.IOException;
 import java.util.HashMap;

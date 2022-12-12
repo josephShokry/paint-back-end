@@ -1,11 +1,12 @@
-package com.oop_paint.shapes;
+package com.oop_paint.Shapes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.oop_paint.database.Database;
+import com.oop_paint.Database.Database;
+
 
 //@JsonIgnoreProperties(ignoreUnknown = true, value = {"attributes"})
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY, visible = true)
@@ -17,7 +18,7 @@ import com.oop_paint.database.Database;
         @JsonSubTypes.Type(value = SegmentLine.class, name = "segmentline")
 })
 @JsonIgnoreProperties(value = "attributes",ignoreUnknown = true)
-public abstract class Shape {
+public abstract class Shape implements Cloneable {
     private int x;
     private int y;
     private int scaleX;
@@ -76,6 +77,10 @@ public abstract class Shape {
     public abstract void setAttributes(ShapeDTO shapeDTO);
 
     public abstract Object getAttributes();
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public void draw(){
         Database database = Database.getInstance();

@@ -1,9 +1,9 @@
-package com.oop_paint.commands;
+package com.oop_paint.Commands;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.oop_paint.shapes.ShapeDTO;
+import com.oop_paint.Shapes.ShapeDTO;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
