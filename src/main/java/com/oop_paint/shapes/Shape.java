@@ -42,8 +42,6 @@ public abstract class Shape implements Cloneable {
 
     }
 
-//    public abstract Object getAttributes();
-
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
@@ -55,15 +53,7 @@ public abstract class Shape implements Cloneable {
         Database database = Database.getInstance();
         database.deleteShape(id);
     }
-
-    @Override
-    public String toString() {
-        return "Shape{" +
-                "x=" + x +
-                ", y=" + y +
-                ", fill='" + fill + '\'' +
-                '}';
-    }
+    
     public ShapeDTO toDTO(){
         ObjectMapper mapper = new JsonMapper();
         String json = null;
@@ -74,16 +64,16 @@ public abstract class Shape implements Cloneable {
             return null;
         }
     }
-
+    
     //getters and setters
     public double getX() {
         return x;
     }
-
+    
     public void setX(double x) {
         this.x = x;
     }
-
+    
     public double getY() {
         return y;
     }
@@ -91,11 +81,11 @@ public abstract class Shape implements Cloneable {
     public void setY(double y) {
         this.y = y;
     }
-
+    
     public double getScaleX() {
         return scaleX;
     }
-
+    
     public void setScaleX(double scaleX) {
         this.scaleX = scaleX;
     }
@@ -107,7 +97,7 @@ public abstract class Shape implements Cloneable {
     public void setScaleY(double scaleY) {
         this.scaleY = scaleY;
     }
-
+    
     public double getStrokeWidth() {
         return strokeWidth;
     }
@@ -119,38 +109,45 @@ public abstract class Shape implements Cloneable {
     public String getId() {
         return id;
     }
-
+    
     public void setId(String id) {
         this.id = id;
     }
-
+    
     public String getFill() {
         return fill;
     }
 
-    
-
-//    public abstract Object getAttributes();
     public void setFill(String fill) {
         this.fill = fill;
     }
-
+    
     public String getStroke() {
         return stroke;
     }
-
+    
     public void setStroke(String stroke) {
         this.stroke = stroke;
     }
-
+    
     public double getRotation() {
         return rotation;
     }
-
+    
     public void setRotation(double rotation) {
         this.rotation = rotation;
     }
-
-
+    
+    
+    //    public abstract Object getAttributes();
+//    public abstract Object getAttributes();
 //    public abstract void setAttributes(ShapeDTO data);
+// @Override
+// public String toString() {
+//     return "Shape{" +
+//     "x=" + x +
+//             ", y=" + y +
+//             ", fill='" + fill + '\'' +
+//             '}';
+// }
 }

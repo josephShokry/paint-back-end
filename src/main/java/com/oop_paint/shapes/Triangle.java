@@ -47,10 +47,10 @@ public class Triangle extends Shape{
 //    }
 
 
-    @Override
-    public String toString() {
-        return "Triangle{" +
-                "points=" + Arrays.toString(points) +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "Triangle{" +
+    //             "points=" + Arrays.toString(points) +
+    //             '}';
+    // }
 }

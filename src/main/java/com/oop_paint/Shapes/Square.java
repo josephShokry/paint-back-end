@@ -6,8 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class Square extends Shape {
     private double width;
     private double height;
-//    private double []attributes = new double [2];
-
+    
     public Square(ShapeDTO data) {
         super(data);
         this.width = data.width;
@@ -20,7 +19,7 @@ public class Square extends Shape {
     public double getWidth() {
         return width;
     }
-
+    
     public void setWidth(double width) {
         this.width = width;
     }
@@ -28,7 +27,7 @@ public class Square extends Shape {
     public double getHeight() {
         return height;
     }
-
+    
     public void setHeight(double height) {
         this.height = height;
     }
@@ -45,12 +44,13 @@ public class Square extends Shape {
 //        this.attributes[1] = this.height;
 //        return attributes;
 //    }
+//    private double []attributes = new double [2];
 
-    @Override
-    public String toString() {
-        return "square{" +
-                "width=" + width +
-                ", height=" + height +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "square{" +
+    //             "width=" + width +
+    //             ", height=" + height +
+    //             '}';
+    // }
 }

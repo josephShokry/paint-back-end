@@ -31,6 +31,7 @@ public class SegmentLine extends Shape{
     public void setPoints(double[] points) {
         this.points = points;
     }
+    
     //    @Override
 //    public void setAttributes(ShapeDTO shapeDTO) {
 //        this.x2 = shapeDTO.x2;
@@ -46,10 +47,10 @@ public class SegmentLine extends Shape{
 //    }
 
 
-    @Override
-    public String toString() {
-        return "SegmentLine{" +
-                "points=" + Arrays.toString(points) +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "SegmentLine{" +
+    //             "points=" + Arrays.toString(points) +
+    //             '}';
+    // }
 }

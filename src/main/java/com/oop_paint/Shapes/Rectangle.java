@@ -6,14 +6,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class Rectangle extends Shape {
     private double width;
     private double height;
-//    private double []attributes = new double [2];
-
+    
     public Rectangle(ShapeDTO data) {
         super(data);
         this.width = data.width;
         this.height = data.height;
     }
-
+    
     public Rectangle() {
     }
 
@@ -24,7 +23,7 @@ public class Rectangle extends Shape {
     public void setWidth(double width) {
         this.width = width;
     }
-
+    
     public double getHeight() {
         return height;
     }
@@ -32,15 +31,13 @@ public class Rectangle extends Shape {
     public void setHeight(double height) {
         this.height = height;
     }
-
+    
+//    private double []attributes = new double [2];
 //    @Override
 //    public void setAttributes(ShapeDTO shapeDTO) {
 //        this.width = shapeDTO.width;
 //        this.height = shapeDTO.height;
 //    }
-//
-//
-//
 //    @Override
 //    public Object getAttributes() {
 //        this.attributes[0] = this.width;
@@ -48,11 +45,11 @@ public class Rectangle extends Shape {
 //        return attributes;
 //    }
 
-    @Override
-    public String toString() {
-        return "Rectangle{" +
-                "width=" + width +
-                ", height=" + height +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "Rectangle{" +
+    //             "width=" + width +
+    //             ", height=" + height +
+    //             '}';
+    // }
 }
