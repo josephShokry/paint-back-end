@@ -34,14 +34,8 @@ public class Controller {
         System.out.println(database.toString());
     }
     @PostMapping("/save")
-    public ShapeDTO save(@RequestBody ShapeDTO shapeDTO) throws IOException {
+    public void save(@RequestBody ShapeDTO shapeDTO) throws IOException {
         paint.save(shapeDTO);
-
-        File file = new File(shapeDTO.path);
-        Scanner scn = new Scanner(file);
-        shapeDTO.saveData = scn.nextLine();
-        System.out.println(shapeDTO.saveData);
-        return shapeDTO;
     }
     @GetMapping("/load/{path}")
     public Object load(@PathVariable String path) throws IOException {
