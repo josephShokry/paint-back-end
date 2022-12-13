@@ -14,6 +14,9 @@ public class Square extends Shape {
         this.height = data.height;
     }
 
+    public Square() {
+    }
+
     public double getWidth() {
         return width;
     }

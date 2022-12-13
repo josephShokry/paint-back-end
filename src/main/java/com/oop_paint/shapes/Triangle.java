@@ -15,9 +15,10 @@ public class Triangle extends Shape{
         this.y2 = data.y2;
         this.x3 = data.x3;
         this.y3 = data.y3;
-
     }
 
+    public Triangle() {
+    }
 
     public double getX3() {
         return x3;

@@ -14,7 +14,9 @@ public class Ellipse extends Shape{
         this.radiusY = data.radiusY;
     }
 
-//    @Override
+    public Ellipse() {
+    }
+    //    @Override
 //    public void setAttributes(ShapeDTO shapeDTO){
 //        this.radiusX = shapeDTO.radiusX;
 //        this.radiusY = shapeDTO.radiusY;

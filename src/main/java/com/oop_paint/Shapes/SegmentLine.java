@@ -15,6 +15,9 @@ public class SegmentLine extends Shape{
         this.y2 = data.y2;
     }
 
+    public SegmentLine() {
+    }
+
     public void setX2(double x2) {
         this.x2 = x2;
     }
