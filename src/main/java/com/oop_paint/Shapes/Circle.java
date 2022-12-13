@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @JsonTypeName("circle")
 public class Circle extends Shape {
-    private int radius;
+    private double radius;
 
-    public Circle(int x, int y, String color, int radius, String id) {
-
+    public Circle(double x, double y, String color, double radius, String id) {
         //todo function to set att of the super
         super.setX(x);
         super.setY(y);
-        super.setColor(color);
+        super.setFill(color);
         super.setId(id);
         this.radius = radius;
     }
@@ -24,11 +23,11 @@ public class Circle extends Shape {
     }
 
     @Override
-    public Integer getAttributes() {
+    public Double getAttributes() {
         return radius;
     }
 
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
 

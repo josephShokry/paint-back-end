@@ -7,118 +7,70 @@ import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 
 @JsonTypeName("Resize")
-public class Resize extends Command{
+public class Resize extends Command {
     private Shape shape;
-    private ShapeDTO data;
-    private String shapeType;
-    private int oldRadiusX;
-    private int oldRadiusY;
-    private int oldRadius;
-    private int oldWidth;
-    private int oldHeight;
-    private int oldX2;
-    private int oldY2;
-    private int temporary;
-    private int []attributes;
-
-    public Resize(@JsonProperty("Data")ShapeDTO data) {
+    private double oldScaleX;
+    private double oldScaleY;
+    private double oldStrokeWidth;
+    private double oldRotation;
+    public Resize(@JsonProperty("Data") ShapeDTO data) {
         this.data = data;
     }
 
-
     @Override
     public void undo() {
+        shape.setScaleX(this.oldScaleX);
+        oldScaleX = data.scaleX;
+        data.scaleX = shape.getScaleX();
 
-        if(shapeType.equalsIgnoreCase("circle")){
-            this.temporary = this.oldRadius;
-            this.oldRadius = this.data.radius;
-            this.data.radius = this.temporary;
-        }
-        else if (shapeType.equalsIgnoreCase("square") || shapeType.equalsIgnoreCase("rectangle")){
-            this.temporary = this.oldWidth;
-            this.oldWidth = this.data.width;
-            this.data.width = this.temporary;
+        shape.setScaleY(this.oldScaleY);
+        oldScaleY = data.scaleY;
+        data.scaleY = shape.getScaleY();
 
-            this.temporary = this.oldHeight;
-            this.oldHeight = this.data.height;
-            this.data.height = this.temporary;
-        }
-        else if(shapeType.equalsIgnoreCase("ellipse")){
-            this.temporary = this.oldRadiusX;
-            this.oldRadiusX = this.data.radiusX;
-            this.data.radiusX = this.temporary;
+        shape.setStrokeWidth(this.oldStrokeWidth);
+        oldStrokeWidth = data.strokeWidth;
+        data.strokeWidth = shape.getStrokeWidth();
 
-            this.temporary = this.oldRadiusY;
-            this.oldRadiusY = this.data.radiusY;
-            this.data.radiusY = this.temporary;
-        }
-        else if(shapeType.equalsIgnoreCase("segmentline")){
-            this.temporary = this.oldX2;
-            this.oldX2 = this.data.x2;
-            this.data.x2 = this.temporary;
-
-            this.temporary = this.oldY2;
-            this.oldY2 = this.data.y2;
-            this.data.y2 = this.temporary;
-        }
-        this.shape.setAttributes(this.data);
+        shape.setRotation(this.oldRotation);
+        oldRotation = data.rotation;
+        data.rotation = shape.getRotation();
     }
-
     @Override
     public void redo() {
-        if(shapeType.equalsIgnoreCase("circle")){
-            this.data.radius = this.oldRadius;
-        }
-        else if (shapeType.equalsIgnoreCase("square") || shapeType.equalsIgnoreCase("rectangle")){
-            this.data.width = this.oldWidth;
-            this.data.height = this.oldHeight;
-        }
-        else if(shapeType.equalsIgnoreCase("ellipse")){
-            this.data.radiusX = this.oldRadiusX;
-            this.data.radiusY = this.oldRadiusY;
-        }
-        else if(shapeType.equalsIgnoreCase("segmentline")){
-            this.data.x2 = this.oldX2;
-            this.data.y2 = this.oldY2;
-        }
-        this.shape.setAttributes(this.data);
-    }
+        shape.setScaleX(oldScaleX);
+        oldScaleX = data.scaleX;
+        data.scaleX = shape.getScaleX();
 
+        shape.setScaleY(oldScaleY);
+        oldScaleY = data.scaleY;
+        data.scaleY = shape.getScaleY();
+
+        shape.setStrokeWidth(oldStrokeWidth);
+        oldStrokeWidth = data.strokeWidth;
+        data.strokeWidth = shape.getStrokeWidth();
+
+        shape.setRotation(oldRotation);
+        oldRotation = data.rotation;
+        data.rotation = shape.getRotation();
+
+    }
     @Override
     public void execute() {
         Database database = Database.getInstance();
         shape = database.getShape(data.id);
-        shapeType = data.className;
-        if(shapeType.equalsIgnoreCase("circle")){
-            this.oldRadius = (int) shape.getAttributes();
-            shape.setAttributes(this.data);
-        }
-        else if (shapeType.equalsIgnoreCase("square") || shapeType.equalsIgnoreCase("rectangle")){
-            attributes = new int[2];
-            attributes = (int[]) shape.getAttributes();
-            this.oldWidth  = this.attributes[0];
-            this.oldHeight = this.attributes[1];
-            shape.setAttributes(this.data);
-        }
-        else if(shapeType.equalsIgnoreCase("ellipse")){
-            attributes = new int[2];
-            attributes = (int[]) shape.getAttributes();
-            this.oldRadiusX = this.attributes[0];
-            this.oldRadiusY = this.attributes[1];
-            shape.setAttributes(this.data);
-        }
-        else if(shapeType.equalsIgnoreCase("segmentline")){
-            attributes = new int[2];
-            attributes = (int[]) shape.getAttributes();
-            this.oldX2 = this.attributes[0];
-            this.oldY2 = this.attributes[1];
-            shape.setAttributes(this.data);
-        }
+        oldScaleX = shape.getScaleX();
+        oldScaleY = shape.getScaleY();
+        oldRotation = shape.getRotation();
+        oldStrokeWidth = shape.getStrokeWidth();
+
+        shape.setScaleX(data.scaleX);
+        shape.setScaleY(data.scaleY);
+        shape.setRotation(data.rotation);
+        shape.setStrokeWidth(data.strokeWidth);
+
     }
 
-
-    //getter and setter for the saver
-
+    //getter and setters
     public Shape getShape() {
         return shape;
     }
@@ -127,75 +79,43 @@ public class Resize extends Command{
         this.shape = shape;
     }
 
-    public ShapeDTO getData() {
-        return data;
+    public double getOldScaleX() {
+        return oldScaleX;
     }
 
-    public void setData(ShapeDTO data) {
-        this.data = data;
+    public void setOldScaleX(double oldScaleX) {
+        this.oldScaleX = oldScaleX;
     }
 
-    public String getShapeType() {
-        return shapeType;
+    public double getOldScaleY() {
+        return oldScaleY;
     }
 
-    public void setShapeType(String shapeType) {
-        this.shapeType = shapeType;
+    public void setOldScaleY(double oldScaleY) {
+        this.oldScaleY = oldScaleY;
     }
 
-    public int getOldRadiusX() {
-        return oldRadiusX;
+    public double getStrokeWidth() {
+        return oldStrokeWidth;
     }
 
-    public void setOldRadiusX(int oldRadiusX) {
-        this.oldRadiusX = oldRadiusX;
+    public void setStrokeWidth(double strokeWidth) {
+        this.oldStrokeWidth = strokeWidth;
     }
 
-    public int getOldRadiusY() {
-        return oldRadiusY;
+    public double getOldStrokeWidth() {
+        return oldStrokeWidth;
     }
 
-    public void setOldRadiusY(int oldRadiusY) {
-        this.oldRadiusY = oldRadiusY;
+    public void setOldStrokeWidth(double oldStrokeWidth) {
+        this.oldStrokeWidth = oldStrokeWidth;
     }
 
-    public int getOldRadius() {
-        return oldRadius;
+    public double getOldRotation() {
+        return oldRotation;
     }
 
-    public void setOldRadius(int oldRadius) {
-        this.oldRadius = oldRadius;
-    }
-
-    public int getOldWidth() {
-        return oldWidth;
-    }
-
-    public void setOldWidth(int oldWidth) {
-        this.oldWidth = oldWidth;
-    }
-
-    public int getOldHeight() {
-        return oldHeight;
-    }
-
-    public void setOldHeight(int oldHeight) {
-        this.oldHeight = oldHeight;
-    }
-
-    public int getTemporary() {
-        return temporary;
-    }
-
-    public void setTemporary(int temporary) {
-        this.temporary = temporary;
-    }
-
-    public int[] getAttributes() {
-        return attributes;
-    }
-
-    public void setAttributes(int[] attributes) {
-        this.attributes = attributes;
+    public void setOldRotation(double oldRotation) {
+        this.oldRotation = oldRotation;
     }
 }

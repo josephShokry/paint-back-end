@@ -1,15 +1,11 @@
 package com.oop_paint.Database;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.oop_paint.Commands.Command;
 import com.oop_paint.Saver.Saver;
 import com.oop_paint.Saver.SaverFactory;
 import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
-
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Stack;
@@ -34,9 +30,9 @@ public class Database {
     public ShapeDTO undo(){
         try {
             Command command = undoStack.peek();
-            redoStack.push(command);
             undoStack.pop();
             command.undo();
+            redoStack.push(command);
             return command.data;
         }
         catch (Exception e){
@@ -84,10 +80,12 @@ public class Database {
         return saver.loadStage();
     }
     public String addShape(Shape shape){
-        String id = "s"+idCounter++;
-        shape.setId(id);
+        if(shape.getId()==null){
+            String id = "s"+idCounter++;
+            shape.setId(id);
+        }
         currentShapes.put(shape.getId(),shape);
-        return id;
+        return shape.getId();
     }
     public void deleteShape(String id){
         currentShapes.remove(id);
@@ -101,9 +99,6 @@ public class Database {
     }
 
     private void clear(){
-//        undoStack.clear();
-//        redoStack.clear();
-//        currentShapes.clear();
         clearUndoStack();
         clearRedoStack();
         clearShapesList();

@@ -7,7 +7,7 @@ import com.oop_paint.Shapes.ShapeDTO;
 
 import java.io.IOException;
 
-public class PaintServices {
+public class PaintService {
     Database database = Database.getInstance();
     CommandFactory commandFactory = new CommandFactory();
     public ShapeDTO draw(ShapeDTO shapeDTO){
@@ -25,8 +25,8 @@ public class PaintServices {
     }
     public void update(ShapeDTO shapeDTO){
         Command command = commandFactory.getCommand(shapeDTO);
-        database.addCommand(command);
         command.execute();
+        database.addCommand(command);
         database.clearRedoStack();
     }
     public void save(ShapeDTO shapeDTO) throws IOException {

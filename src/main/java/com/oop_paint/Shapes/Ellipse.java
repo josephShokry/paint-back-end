@@ -4,17 +4,17 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @JsonTypeName("ellipse")
 public class Ellipse extends Shape{
-    private int radiusX;
-    private int radiusY;
-    private int []attributes = new int [2];
+    private double radiusX;
+    private double radiusY;
+    private double []attributes = new double [2];
 
 
 
-    public Ellipse(int x, int y, String color, int radiusX, int radiusY,  String id) {
+    public Ellipse(double x, double y, String fill, double radiusX, double radiusY,  String id) {
         //todo function to set att of the super
         super.setX(x);
         super.setY(y);
-        super.setColor(color);
+        super.setFill(fill);
         super.setId(id);
         this.radiusX = radiusX;
         this.radiusY = radiusY;
@@ -35,23 +35,23 @@ public class Ellipse extends Shape{
         return attributes;
     }
 
-    public int getRadiusX() {
+    public double getRadiusX() {
         return this.radiusX;
     }
 
-    public int getRadiusY() {
+    public double getRadiusY() {
         return this.radiusY;
     }
 
-    public void setRadiusX(int radiusX) {
+    public void setRadiusX(double radiusX) {
         this.radiusX = radiusX;
     }
 
-    public void setRadiusY(int radiusY) {
+    public void setRadiusY(double radiusY) {
         this.radiusY = radiusY;
     }
     //TODO add the logic to the command move
-    public void move(int x, int y){
+    public void move(double x, double y){
         super.setX(x);
         super.setY(y);
     }

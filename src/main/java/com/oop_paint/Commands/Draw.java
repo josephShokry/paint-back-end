@@ -3,7 +3,6 @@ package com.oop_paint.Commands;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 import com.oop_paint.Shapes.ShapeFactory;
@@ -34,7 +33,10 @@ public class Draw extends Command{
         //todo add the dto to the factory
         shape.setX(data.x);
         shape.setY(data.y);
-        shape.setColor(data.fill);
+        shape.setFill(data.fill);
+        shape.setRotation(data.rotation);
+        shape.setStroke(data.stroke);
+        shape.setStrokeWidth(data.strokeWidth);
         shape.setAttributes(data);
         shape.draw();
         data.id = shape.getId();

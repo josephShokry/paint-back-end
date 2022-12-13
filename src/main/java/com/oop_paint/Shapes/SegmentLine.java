@@ -5,14 +5,14 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeName("segmentline")
 public class SegmentLine extends Shape{
 
-    private int x2;
-    private int y2;
-    private int []attributes = new int [2];
+    private double x2;
+    private double y2;
+    private double []attributes = new double [2];
 
-    public SegmentLine(int x, int y, String color, String id, int x2, int y2) {
+    public SegmentLine(double x, double y, String fill, String id, double x2, double y2) {
         super.setX(x);
         super.setY(y);
-        super.setColor(color);
+        super.setFill(fill);
         super.setId(id);
         this.x2 = x2;
         this.y2 = y2;
@@ -21,19 +21,19 @@ public class SegmentLine extends Shape{
     public SegmentLine() {
     }
 
-    public void setX2(int x2) {
+    public void setX2(double x2) {
         this.x2 = x2;
     }
 
-    public void setY2(int y2) {
+    public void setY2(double y2) {
         this.y2 = y2;
     }
 
-    public int getX2() {
+    public double getX2() {
         return this.x2;
     }
 
-    public int getY2() {
+    public double getY2() {
         return this.y2;
     }
 
@@ -55,7 +55,7 @@ public class SegmentLine extends Shape{
         return attributes;
     }
 
-    public void move(int x, int y){
+    public void move(double x, double y){
         super.setX(x);
         super.setY(y);
     }

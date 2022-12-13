@@ -9,28 +9,45 @@ import com.oop_paint.Shapes.ShapeDTO;
 @JsonTypeName("Recolor")
 public class Recolor extends Command{
     private Shape shape;
-    private String oldColor;
+    private String oldFill;
+    private String oldStroke;
 
     public Recolor(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;
-        Database database = Database.getInstance();
-        this.shape = database.getShape(data.id);
+//        Database database = Database.getInstance();
+//        this.shape = database.getShape(data.id);
     }
 
     @Override
     public void undo() {
-        shape.setColor(oldColor);
+        shape.setFill(oldFill);
+        oldFill = data.fill;
+        data.fill = shape.getFill();
+
+        shape.setStroke(oldStroke);
+        oldStroke = data.stroke;
+        data.stroke = shape.getStroke();
     }
 
     @Override
     public void redo() {
-        shape.setColor(data.fill);
+        shape.setFill(oldFill);
+        oldFill = data.fill;
+        data.fill = shape.getFill();
+
+        shape.setStroke(oldStroke);
+        oldStroke = data.stroke;
+        data.stroke = shape.getStroke();
     }
 
     @Override
     public void execute() {
-        oldColor = shape.getColor();
-        shape.setColor(data.fill);
+        Database database = Database.getInstance();
+        this.shape = database.getShape(data.id);
+        oldFill = shape.getFill();
+        oldStroke = shape.getStroke();
+        shape.setFill(data.fill);
+        shape.setStroke(data.stroke);
     }
 
     public Shape getShape() {
@@ -49,11 +66,19 @@ public class Recolor extends Command{
         this.data = data;
     }
 
-    public String getOldColor() {
-        return oldColor;
+    public String getOldFill() {
+        return oldFill;
     }
 
-    public void setOldColor(String oldColor) {
-        this.oldColor = oldColor;
+    public void setOldFill(String oldFill) {
+        this.oldFill = oldFill;
+    }
+
+    public String getOldStroke() {
+        return oldStroke;
+    }
+
+    public void setOldStroke(String oldStroke) {
+        this.oldStroke = oldStroke;
     }
 }
