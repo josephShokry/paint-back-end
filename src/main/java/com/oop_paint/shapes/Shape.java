@@ -39,6 +39,9 @@ public abstract class Shape implements Cloneable {
         this.fill = data.fill;
         this.stroke = data.stroke;
     }
+    public Shape(){
+
+    }
 
 //    public abstract Object getAttributes();
 

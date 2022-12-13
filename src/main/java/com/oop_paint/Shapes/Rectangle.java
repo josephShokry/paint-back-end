@@ -14,6 +14,9 @@ public class Rectangle extends Shape {
         this.height = data.height;
     }
 
+    public Rectangle() {
+    }
+
     public double getWidth() {
         return width;
     }
