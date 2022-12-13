@@ -33,7 +33,7 @@ public class ShapeDTO {
     public String commandType;
     public String path;
     public String className;
-
+    public String saveData;
     public Object stage;
     public boolean closed;
 

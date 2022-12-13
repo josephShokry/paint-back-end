@@ -13,15 +13,6 @@ public class Circle extends Shape {
 
     public Circle() {
     }
-    //    @Override
-//    public void setAttributes(ShapeDTO shapeDTO){
-//        radius = shapeDTO.radius;
-//    }
-
-//    @Override
-//    public Double getAttributes() {
-//        return radius;
-//    }
 
     public double getRadius() {
         return radius;
@@ -31,11 +22,20 @@ public class Circle extends Shape {
         this.radius = radius;
     }
 
-
-    @Override
-    public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                '}';
-    }
+//
+//    @Override
+//    public String toString() {
+//        return "Circle{" +
+//                "radius=" + radius +
+//                '}';
+//    }
+//        @Override
+//    public void setAttributes(ShapeDTO shapeDTO){
+//        radius = shapeDTO.radius;
+//    }
+//
+//    @Override
+//    public Double getAttributes() {
+//        return radius;
+//    }
 }
