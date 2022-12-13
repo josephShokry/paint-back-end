@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class Rectangle extends Shape {
     private double width;
     private double height;
-    private double []attributes = new double [2];
+//    private double []attributes = new double [2];
 
     public Rectangle(ShapeDTO data) {
         super(data);

@@ -5,10 +5,12 @@ import java.util.Arrays;
 public class Triangle extends Shape{
 
     private double []points;
+    private boolean closed;
 
     public Triangle(ShapeDTO data) {
         super(data);
         this.points = data.points;
+        this.closed = data.closed;
     }
 
     public double[] getPoints() {

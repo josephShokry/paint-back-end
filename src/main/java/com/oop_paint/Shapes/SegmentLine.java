@@ -8,10 +8,12 @@ import java.util.Arrays;
 public class SegmentLine extends Shape{
 
     private double []points;
+    private boolean closed;
 
     public SegmentLine(ShapeDTO data) {
         super(data);
         this.points = data.points;
+        this.closed = data.closed;
     }
 
     public double[] getPoints() {

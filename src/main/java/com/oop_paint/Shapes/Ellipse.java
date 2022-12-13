@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 public class Ellipse extends Shape{
     private double radiusX;
     private double radiusY;
-    private double []attributes = new double [2];
+//    private double []attributes = new double [2];
 
     public Ellipse(ShapeDTO data) {
         super(data);
