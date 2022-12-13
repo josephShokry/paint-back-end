@@ -50,7 +50,9 @@ public class Move extends Command{
         shape.setX(data.x);
         shape.setY(data.y);
     }
-//setters and getters
+
+
+    //setters and getters
     public Shape getShape() {
         return shape;
     }

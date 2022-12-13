@@ -16,7 +16,6 @@ public class Delete extends Command {
     @Override
     public void undo() {
         shape.draw();
-        //TODO we have to get the data form the shape to the DTO
         data = shape.toDTO();
         data.className = shape.getClass().getSimpleName();
         data.commandType = "delete";
@@ -24,7 +23,6 @@ public class Delete extends Command {
 
     @Override
     public void redo() {
-
         shape.delete();
     }
 

@@ -10,10 +10,10 @@ public class ShapeDTO {
     public double []points;
     public double x; //for all shapes
     public double y; //for all shapes
-    public double x2; //for lines
-    public double y2; //for lines
-    public double x3; //for triangle
-    public double y3; //for triangle
+//    public double x2; //for lines
+//    public double y2; //for lines
+//    public double x3; //for triangle
+//    public double y3; //for triangle
     public double radius; //for circle
     public double radiusX; //for ellipse
     public double radiusY; //for ellipse
@@ -35,5 +35,7 @@ public class ShapeDTO {
     public String className;
     public String saveData;
     public Object stage;
+
+    public boolean closed;
 
 }
