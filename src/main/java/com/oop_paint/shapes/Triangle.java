@@ -75,10 +75,6 @@ public class Triangle extends Shape{
         return attributes;
     }
 
-    public void move(int x, int y){
-        super.setX(x);
-        super.setY(y);
-    }
 
 
 
