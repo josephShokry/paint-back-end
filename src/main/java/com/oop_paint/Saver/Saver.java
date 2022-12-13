@@ -12,6 +12,7 @@ public class Saver {
     private Database database = Database.getInstance();
     public void save() throws IOException {
         mapper.writeValue(new File(path),database);
+
     }
     public void saveStage(Object stage) throws IOException {
         mapper.writeValue(new File(path),stage);
@@ -36,4 +37,5 @@ public class Saver {
     public void setPath(String path) {
         this.path = path;
     }
+
 }

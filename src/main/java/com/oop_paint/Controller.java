@@ -3,7 +3,10 @@ package com.oop_paint;
 import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.ShapeDTO;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,8 +34,14 @@ public class Controller {
         System.out.println(database.toString());
     }
     @PostMapping("/save")
-    public void save(@RequestBody ShapeDTO shapeDTO) throws IOException {
+    public ShapeDTO save(@RequestBody ShapeDTO shapeDTO) throws IOException {
         paint.save(shapeDTO);
+
+        File file = new File(shapeDTO.path);
+        Scanner scn = new Scanner(file);
+        shapeDTO.saveData = scn.nextLine();
+        System.out.println(shapeDTO.saveData);
+        return shapeDTO;
     }
     @GetMapping("/load/{path}")
     public Object load(@PathVariable String path) throws IOException {
@@ -44,5 +53,9 @@ public class Controller {
         dto.id = id;
         dto.commandType = "clone";
         return paint.draw(dto);
+    }
+    @PostMapping("/saveTest")
+    public void saveTest(ShapeDTO shapeDTO){
+
     }
 }
