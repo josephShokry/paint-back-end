@@ -2,36 +2,26 @@ package com.oop_paint.Shapes;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.util.Arrays;
+
 @JsonTypeName("segmentline")
 public class SegmentLine extends Shape{
 
-    private double x2;
-    private double y2;
-    private double []attributes = new double [2];
+    private double []points;
 
     public SegmentLine(ShapeDTO data) {
         super(data);
-        this.x2 = data.x2;
-        this.y2 = data.y2;
+        this.points = data.points;
     }
 
-    public void setX2(double x2) {
-        this.x2 = x2;
+    public double[] getPoints() {
+        return points;
     }
 
-    public void setY2(double y2) {
-        this.y2 = y2;
+    public void setPoints(double[] points) {
+        this.points = points;
     }
-
-    public double getX2() {
-        return this.x2;
-    }
-
-    public double getY2() {
-        return this.y2;
-    }
-
-//    @Override
+    //    @Override
 //    public void setAttributes(ShapeDTO shapeDTO) {
 //        this.x2 = shapeDTO.x2;
 //        this.y2 = shapeDTO.y2;
@@ -49,8 +39,7 @@ public class SegmentLine extends Shape{
     @Override
     public String toString() {
         return "SegmentLine{" +
-                "x2=" + x2 +
-                ", y2=" + y2 +
+                "points=" + Arrays.toString(points) +
                 '}';
     }
 }

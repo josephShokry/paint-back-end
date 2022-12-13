@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(value = JsonInclude.Include.NON_DEFAULT)
 public class ShapeDTO {
+    public double []points;
     public double x; //for all shapes
     public double y; //for all shapes
     public double x2; //for lines
