@@ -7,16 +7,18 @@ import java.io.IOException;
 
 public class Saver {
 
-    private ObjectMapper mapper ;
+    private ObjectMapper mapper;
     private String path;
     private Database database = Database.getInstance();
+
     public void save() throws IOException {
         mapper.writeValue(new File(path),database);
-
     }
+
     public void saveStage(Object stage) throws IOException {
         mapper.writeValue(new File(path),stage);
     }
+
     public void load() throws IOException {
         File file = new File(path);
         Database data = (Database) mapper.readValue(file, Database.class);
@@ -25,6 +27,7 @@ public class Saver {
         database.setUndoStack(data.getUndoStack());
         database.setIdCounter(data.getIdCounter());
     }
+
     public Object loadStage() throws IOException {
         File file = new File(path);
         return mapper.readValue(file, Object.class);
@@ -37,5 +40,4 @@ public class Saver {
     public void setPath(String path) {
         this.path = path;
     }
-
 }

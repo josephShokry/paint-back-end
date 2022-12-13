@@ -13,8 +13,7 @@ public class Rectangle extends Shape {
         this.height = data.height;
     }
     
-    public Rectangle() {
-    }
+    public Rectangle() {}
 
     public double getWidth() {
         return width;
@@ -31,25 +30,4 @@ public class Rectangle extends Shape {
     public void setHeight(double height) {
         this.height = height;
     }
-    
-//    private double []attributes = new double [2];
-//    @Override
-//    public void setAttributes(ShapeDTO shapeDTO) {
-//        this.width = shapeDTO.width;
-//        this.height = shapeDTO.height;
-//    }
-//    @Override
-//    public Object getAttributes() {
-//        this.attributes[0] = this.width;
-//        this.attributes[1] = this.height;
-//        return attributes;
-//    }
-
-    // @Override
-    // public String toString() {
-    //     return "Rectangle{" +
-    //             "width=" + width +
-    //             ", height=" + height +
-    //             '}';
-    // }
 }

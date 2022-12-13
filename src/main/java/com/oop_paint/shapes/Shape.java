@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.oop_paint.Database.Database;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY, visible = true)
 @JsonSubTypes({
@@ -40,9 +39,7 @@ public abstract class Shape implements Cloneable {
         this.fill = data.fill;
         this.stroke = data.stroke;
     }
-    public Shape(){
-
-    }
+    public Shape(){}
 
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
@@ -139,17 +136,4 @@ public abstract class Shape implements Cloneable {
     public void setRotation(double rotation) {
         this.rotation = rotation;
     }
-    
-    
-    //    public abstract Object getAttributes();
-//    public abstract Object getAttributes();
-//    public abstract void setAttributes(ShapeDTO data);
-// @Override
-// public String toString() {
-//     return "Shape{" +
-//     "x=" + x +
-//             ", y=" + y +
-//             ", fill='" + fill + '\'' +
-//             '}';
-// }
 }

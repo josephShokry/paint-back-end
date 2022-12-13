@@ -13,8 +13,7 @@ public class Square extends Shape {
         this.height = data.height;
     }
 
-    public Square() {
-    }
+    public Square() {}
 
     public double getWidth() {
         return width;
@@ -31,26 +30,4 @@ public class Square extends Shape {
     public void setHeight(double height) {
         this.height = height;
     }
-
-//    @Override
-//    public void setAttributes(ShapeDTO shapeDTO) {
-//        this.width = shapeDTO.width;
-//        this.height = shapeDTO.height;
-//    }
-//
-//    @Override
-//    public Object getAttributes() {
-//        this.attributes[0] = this.width;
-//        this.attributes[1] = this.height;
-//        return attributes;
-//    }
-//    private double []attributes = new double [2];
-
-    // @Override
-    // public String toString() {
-    //     return "square{" +
-    //             "width=" + width +
-    //             ", height=" + height +
-    //             '}';
-    // }
 }

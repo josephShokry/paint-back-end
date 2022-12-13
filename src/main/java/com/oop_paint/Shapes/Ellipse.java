@@ -13,9 +13,7 @@ public class Ellipse extends Shape{
         this.radiusY = data.radiusY;
     }
     
-    public Ellipse() {
-    }
-
+    public Ellipse() {}
     
     public double getRadiusX() {
         return this.radiusX;
@@ -32,26 +30,4 @@ public class Ellipse extends Shape{
     public void setRadiusY(double radiusY) {
         this.radiusY = radiusY;
     }
-
-
-    // @Override
-    // public String toString() {
-    //     return "Ellipse{" +
-    //     "radiusX=" + radiusX +
-    //     ", radiusY=" + radiusY +
-    //     '}';
-    // }
-    //    private double []attributes = new double [2];
-    //    @Override
-    //    public void setAttributes(ShapeDTO shapeDTO){
-    //        this.radiusX = shapeDTO.radiusX;
-    //        this.radiusY = shapeDTO.radiusY;
-    //    }
-    //
-    //    @Override
-    //    public Object getAttributes() {
-    //        attributes[0] = this.radiusX;
-    //        attributes[1] = this.radiusY;
-    //        return attributes;
-    //    }
 }
