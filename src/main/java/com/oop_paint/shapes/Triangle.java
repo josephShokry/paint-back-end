@@ -3,53 +3,20 @@ package com.oop_paint.Shapes;
 import java.util.Arrays;
 
 public class Triangle extends Shape{
-    private double x2;
-    private double y2;
-    private double x3;
-    private double y3;
-    private double []attributes = new double [4];
+
+    private double []points;
 
     public Triangle(ShapeDTO data) {
         super(data);
-        this.x2 = data.x2;
-        this.y2 = data.y2;
-        this.x3 = data.x3;
-        this.y3 = data.y3;
+        this.points = data.points;
     }
 
-    public Triangle() {
+    public double[] getPoints() {
+        return points;
     }
 
-    public double getX3() {
-        return x3;
-    }
-
-    public void setX3(double x3) {
-        this.x3 = x3;
-    }
-
-    public double getY3() {
-        return y3;
-    }
-
-    public void setY3(double y3) {
-        this.y3 = y3;
-    }
-
-    public void setX2(double x2) {
-        this.x2 = x2;
-    }
-
-    public void setY2(double y2) {
-        this.y2 = y2;
-    }
-
-    public double getX2() {
-        return this.x2;
-    }
-
-    public double getY2() {
-        return this.y2;
+    public void setPoints(double[] points) {
+        this.points = points;
     }
 
 //    @Override
@@ -70,16 +37,10 @@ public class Triangle extends Shape{
 //    }
 
 
-
-
     @Override
     public String toString() {
         return "Triangle{" +
-                "x2=" + x2 +
-                ", y2=" + y2 +
-                ", x3=" + x3 +
-                ", y3=" + y3 +
-                ", attributes=" + Arrays.toString(attributes) +
+                "points=" + Arrays.toString(points) +
                 '}';
     }
 }
