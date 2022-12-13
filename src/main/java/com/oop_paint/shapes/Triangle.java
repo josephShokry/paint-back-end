@@ -1,7 +1,10 @@
 package com.oop_paint.Shapes;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import java.util.Arrays;
 
+@JsonTypeName("triangle")
 public class Triangle extends Shape{
 
     private double []points;
@@ -19,6 +22,9 @@ public class Triangle extends Shape{
         super(data);
         this.points = data.points;
         this.closed = data.closed;
+    }
+
+    public Triangle() {
     }
 
     public double[] getPoints() {

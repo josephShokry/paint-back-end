@@ -24,6 +24,9 @@ public class SegmentLine extends Shape{
         this.closed = data.closed;
     }
 
+    public SegmentLine() {
+    }
+
     public double[] getPoints() {
         return points;
     }

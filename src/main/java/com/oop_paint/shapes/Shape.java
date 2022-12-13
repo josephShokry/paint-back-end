@@ -14,7 +14,9 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
         @JsonSubTypes.Type(value = Circle.class, name = "circle"),
         @JsonSubTypes.Type(value = Ellipse.class, name = "ellipse"),
         @JsonSubTypes.Type(value = Rectangle.class, name = "rectangle"),
-        @JsonSubTypes.Type(value = SegmentLine.class, name = "segmentline")
+        @JsonSubTypes.Type(value = SegmentLine.class, name = "segmentline"),
+        @JsonSubTypes.Type(value = Triangle.class, name = "triangle")
+
 })
 @JsonIgnoreProperties(value = "attributes",ignoreUnknown = true)
 public abstract class Shape implements Cloneable {
