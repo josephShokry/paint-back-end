@@ -8,20 +8,12 @@ public class Ellipse extends Shape{
     private double radiusY;
     private double []attributes = new double [2];
 
-
-
-    public Ellipse(double x, double y, String fill, double radiusX, double radiusY,  String id) {
-        //todo function to set att of the super
-        super.setX(x);
-        super.setY(y);
-        super.setFill(fill);
-        super.setId(id);
-        this.radiusX = radiusX;
-        this.radiusY = radiusY;
+    public Ellipse(ShapeDTO data) {
+        super(data);
+        this.radiusX = data.radiusX;
+        this.radiusY = data.radiusY;
     }
 
-    public Ellipse() {
-    }
     @Override
     public void setAttributes(ShapeDTO shapeDTO){
         this.radiusX = shapeDTO.radiusX;
@@ -49,11 +41,6 @@ public class Ellipse extends Shape{
 
     public void setRadiusY(double radiusY) {
         this.radiusY = radiusY;
-    }
-    //TODO add the logic to the command move
-    public void move(double x, double y){
-        super.setX(x);
-        super.setY(y);
     }
 
     @Override

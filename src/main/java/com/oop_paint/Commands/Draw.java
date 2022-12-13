@@ -29,15 +29,7 @@ public class Draw extends Command{
     @Override
     public void execute() {
         ShapeFactory shapeFactory = new ShapeFactory();
-        shape = shapeFactory.getShape(data.className);
-        //todo add the dto to the factory
-        shape.setX(data.x);
-        shape.setY(data.y);
-        shape.setFill(data.fill);
-        shape.setRotation(data.rotation);
-        shape.setStroke(data.stroke);
-        shape.setStrokeWidth(data.strokeWidth);
-        shape.setAttributes(data);
+        shape = shapeFactory.getShape(data);
         shape.draw();
         data.id = shape.getId();
     }

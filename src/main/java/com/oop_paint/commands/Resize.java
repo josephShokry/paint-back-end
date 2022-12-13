@@ -13,8 +13,10 @@ public class Resize extends Command {
     private double oldScaleY;
     private double oldStrokeWidth;
     private double oldRotation;
+    private Move moveCommand;
     public Resize(@JsonProperty("Data") ShapeDTO data) {
         this.data = data;
+        moveCommand = new Move(data);
     }
 
     @Override
@@ -34,6 +36,7 @@ public class Resize extends Command {
         shape.setRotation(this.oldRotation);
         oldRotation = data.rotation;
         data.rotation = shape.getRotation();
+        moveCommand.undo();
     }
     @Override
     public void redo() {
@@ -52,7 +55,7 @@ public class Resize extends Command {
         shape.setRotation(oldRotation);
         oldRotation = data.rotation;
         data.rotation = shape.getRotation();
-
+        moveCommand.redo();
     }
     @Override
     public void execute() {
@@ -67,6 +70,7 @@ public class Resize extends Command {
         shape.setScaleY(data.scaleY);
         shape.setRotation(data.rotation);
         shape.setStrokeWidth(data.strokeWidth);
+        moveCommand.execute();
 
     }
 

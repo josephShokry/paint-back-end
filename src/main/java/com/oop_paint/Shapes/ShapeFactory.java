@@ -1,13 +1,13 @@
 package com.oop_paint.Shapes;
 
 public class ShapeFactory {
-    public Shape getShape(String shapeType){
-        switch (shapeType){
-            case "Circle": return new Circle();
-            case "square": return new Square();
-            case "Rect": return new Rectangle();
-            case "Ellipse": return new Ellipse();
-            case "segmentline" : return new SegmentLine();
+    public Shape getShape(ShapeDTO data){
+        switch (data.className){
+            case "Circle": return new Circle(data);
+            case "square": return new Square(data);
+            case "Rect": return new Rectangle(data);
+            case "Ellipse": return new Ellipse(data);
+            case "segmentline" : return new SegmentLine(data);
             default:return null;
         }
     }

@@ -27,6 +27,19 @@ public abstract class Shape implements Cloneable {
     private String id;
     private String fill;
     private String stroke;
+
+    public Shape(ShapeDTO data) {
+        this.x = data.x;
+        this.y = data.y;
+        this.scaleX = data.scaleX;
+        this.scaleY = data.scaleY;
+        this.rotation = data.rotation;
+        this.strokeWidth = data.strokeWidth;
+//        this.id = id;
+        this.fill = data.fill;
+        this.stroke = data.stroke;
+    }
+
     public abstract Object getAttributes();
 
     public Object clone() throws CloneNotSupportedException {

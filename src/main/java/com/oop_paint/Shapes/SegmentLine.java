@@ -9,16 +9,10 @@ public class SegmentLine extends Shape{
     private double y2;
     private double []attributes = new double [2];
 
-    public SegmentLine(double x, double y, String fill, String id, double x2, double y2) {
-        super.setX(x);
-        super.setY(y);
-        super.setFill(fill);
-        super.setId(id);
-        this.x2 = x2;
-        this.y2 = y2;
-    }
-
-    public SegmentLine() {
+    public SegmentLine(ShapeDTO data) {
+        super(data);
+        this.x2 = data.x2;
+        this.y2 = data.y2;
     }
 
     public void setX2(double x2) {
@@ -50,10 +44,6 @@ public class SegmentLine extends Shape{
         return attributes;
     }
 
-    public void move(double x, double y){
-        super.setX(x);
-        super.setY(y);
-    }
 
     @Override
     public String toString() {
