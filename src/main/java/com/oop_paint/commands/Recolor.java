@@ -2,6 +2,8 @@ package com.oop_paint.Commands;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
@@ -11,6 +13,7 @@ public class Recolor extends Command{
     private Shape shape;
     private String oldFill;
     private String oldStroke;
+
 
     public Recolor(@JsonProperty("Data")ShapeDTO data) {
         this.data = data;

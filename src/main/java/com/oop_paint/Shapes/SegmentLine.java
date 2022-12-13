@@ -10,6 +10,14 @@ public class SegmentLine extends Shape{
     private double []points;
     private boolean closed;
 
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
+
     public SegmentLine(ShapeDTO data) {
         super(data);
         this.points = data.points;

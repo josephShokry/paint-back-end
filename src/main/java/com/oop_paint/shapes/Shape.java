@@ -35,7 +35,6 @@ public abstract class Shape implements Cloneable {
         this.scaleY = data.scaleY;
         this.rotation = data.rotation;
         this.strokeWidth = data.strokeWidth;
-//        this.id = id;
         this.fill = data.fill;
         this.stroke = data.stroke;
     }

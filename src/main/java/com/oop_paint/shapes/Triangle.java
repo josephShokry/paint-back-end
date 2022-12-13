@@ -7,6 +7,14 @@ public class Triangle extends Shape{
     private double []points;
     private boolean closed;
 
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
+
     public Triangle(ShapeDTO data) {
         super(data);
         this.points = data.points;
