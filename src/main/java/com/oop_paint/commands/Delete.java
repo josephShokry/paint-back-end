@@ -24,6 +24,7 @@ public class Delete extends Command {
 
     @Override
     public void redo() {
+
         shape.delete();
     }
 
@@ -33,6 +34,8 @@ public class Delete extends Command {
         shape = database.getShape(data.id);
         shape.delete();
     }
+
+
     //getter and setters for saver
     public Shape getShape() {
         return shape;

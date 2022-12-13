@@ -40,7 +40,7 @@ public abstract class Shape implements Cloneable {
         this.stroke = data.stroke;
     }
 
-    public abstract Object getAttributes();
+//    public abstract Object getAttributes();
 
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
@@ -52,11 +52,6 @@ public abstract class Shape implements Cloneable {
     public void delete(){
         Database database = Database.getInstance();
         database.deleteShape(id);
-    }
-    public void swap(Object x, Object y){
-        Object temp = x;
-        x = y;
-        y = temp;
     }
 
     @Override
@@ -131,6 +126,9 @@ public abstract class Shape implements Cloneable {
         return fill;
     }
 
+    
+
+//    public abstract Object getAttributes();
     public void setFill(String fill) {
         this.fill = fill;
     }
@@ -151,6 +149,6 @@ public abstract class Shape implements Cloneable {
         this.rotation = rotation;
     }
 
-    public abstract void setAttributes(ShapeDTO data);
 
+//    public abstract void setAttributes(ShapeDTO data);
 }

@@ -11,15 +11,15 @@ public class Circle extends Shape {
         this.radius = data.radius;
     }
 
-    @Override
-    public void setAttributes(ShapeDTO shapeDTO){
-        radius = shapeDTO.radius;
-    }
+//    @Override
+//    public void setAttributes(ShapeDTO shapeDTO){
+//        radius = shapeDTO.radius;
+//    }
 
-    @Override
-    public Double getAttributes() {
-        return radius;
-    }
+//    @Override
+//    public Double getAttributes() {
+//        return radius;
+//    }
 
     public double getRadius() {
         return radius;
@@ -28,6 +28,7 @@ public class Circle extends Shape {
     public void setRadius(int radius) {
         this.radius = radius;
     }
+
 
     @Override
     public String toString() {

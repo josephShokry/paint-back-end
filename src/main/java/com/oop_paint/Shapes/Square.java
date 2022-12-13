@@ -30,18 +30,18 @@ public class Square extends Shape {
         this.height = height;
     }
 
-    @Override
-    public void setAttributes(ShapeDTO shapeDTO) {
-        this.width = shapeDTO.width;
-        this.height = shapeDTO.height;
-    }
-
-    @Override
-    public Object getAttributes() {
-        this.attributes[0] = this.width;
-        this.attributes[1] = this.height;
-        return attributes;
-    }
+//    @Override
+//    public void setAttributes(ShapeDTO shapeDTO) {
+//        this.width = shapeDTO.width;
+//        this.height = shapeDTO.height;
+//    }
+//
+//    @Override
+//    public Object getAttributes() {
+//        this.attributes[0] = this.width;
+//        this.attributes[1] = this.height;
+//        return attributes;
+//    }
 
     @Override
     public String toString() {

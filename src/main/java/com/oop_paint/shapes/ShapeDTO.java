@@ -11,6 +11,8 @@ public class ShapeDTO {
     public double y; //for all shapes
     public double x2; //for lines
     public double y2; //for lines
+    public double x3; //for triangle
+    public double y3; //for triangle
     public double radius; //for circle
     public double radiusX; //for ellipse
     public double radiusY; //for ellipse
