@@ -6,8 +6,6 @@ import com.oop_paint.Database.Database;
 import com.oop_paint.Shapes.Shape;
 import com.oop_paint.Shapes.ShapeDTO;
 
-
-
 @JsonTypeName("Clone")
 public class Clone extends Command implements Cloneable{
     private Shape protoTypicalShape;
@@ -42,7 +40,6 @@ public class Clone extends Command implements Cloneable{
         this.data = clonedShape.toDTO();
         this.data.commandType = "clone";
         this.data.className = clonedShape.getClass().getSimpleName();
-//        this.data.closed = clonedShape.ge
     }
 
     public Shape getProtoTypicalShape() {

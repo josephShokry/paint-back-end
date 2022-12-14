@@ -64,15 +64,8 @@ public class Database {
         SaverFactory saverFactory = new SaverFactory(data);
         Saver saver = saverFactory.getSaver();
         return saver.load();
-//        return loadStage(ShapeDTO.path);
     }
-//    private Object loadStage(String path) throws IOException {
-//        path = path.substring(0,path.indexOf('.')-1)+"stage.json";
-//        System.out.println(path);
-//        SaverFactory saverFactory = new SaverFactory(path);
-//        Saver saver = saverFactory.getSaver();
-//        return saver.loadStage();
-//    }
+
     public String addShape(Shape shape){
         if(shape.getId()==null){
             String id = "s"+idCounter++;

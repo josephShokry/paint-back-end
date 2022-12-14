@@ -21,11 +21,11 @@ public class Saver {
     public Object load() throws IOException {
         File file = new File(path);
         Database data = mapper.readValue(file, Database.class);
-        database = data;
-//        database.setCurrentShapes(data.getCurrentShapes());
-//        database.setRedoStack(data.getRedoStack());
-//        database.setUndoStack(data.getUndoStack());
-//        database.setIdCounter(data.getIdCounter());
+//        database = data;
+        database.setCurrentShapes(data.getCurrentShapes());
+        database.setRedoStack(data.getRedoStack());
+        database.setUndoStack(data.getUndoStack());
+        database.setIdCounter(data.getIdCounter());
         return mapper.readValue(new File(stagePath), Object.class);
     }
 
