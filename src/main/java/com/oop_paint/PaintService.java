@@ -33,6 +33,6 @@ public class PaintService {
         database.save(shapeDTO);
     }
     public Object load(String path) throws IOException {
-        return database.load((path));
+        return database.load(path);
     }
 }

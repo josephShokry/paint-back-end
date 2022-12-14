@@ -53,32 +53,26 @@ public class Database {
 
     }
     public void save(ShapeDTO shapeDTO) throws IOException {
-        SaverFactory saverFactory = new SaverFactory(shapeDTO.path);
+        SaverFactory saverFactory = new SaverFactory(shapeDTO);
         Saver saver = saverFactory.getSaver();
         saver.save();
-        saveStage(shapeDTO.stage, shapeDTO.path);
-    }
-    private void saveStage(Object stage, String path) throws IOException {
-        path = path.substring(0,path.indexOf('.')-1)+"stage.json";
-        System.out.println(path);
-        SaverFactory saverFactory = new SaverFactory(path);
-        Saver saver = saverFactory.getSaver();
-        saver.saveStage(stage);
     }
     public Object load(String path) throws IOException {
         this.clear();
-        SaverFactory saverFactory = new SaverFactory(path);
+        ShapeDTO data = new ShapeDTO();
+        data.path = path;
+        SaverFactory saverFactory = new SaverFactory(data);
         Saver saver = saverFactory.getSaver();
-        saver.load();
-        return loadStage(path);
+        return saver.load();
+//        return loadStage(ShapeDTO.path);
     }
-    private Object loadStage(String path) throws IOException {
-        path = path.substring(0,path.indexOf('.')-1)+"stage.json";
-        System.out.println(path);
-        SaverFactory saverFactory = new SaverFactory(path);
-        Saver saver = saverFactory.getSaver();
-        return saver.loadStage();
-    }
+//    private Object loadStage(String path) throws IOException {
+//        path = path.substring(0,path.indexOf('.')-1)+"stage.json";
+//        System.out.println(path);
+//        SaverFactory saverFactory = new SaverFactory(path);
+//        Saver saver = saverFactory.getSaver();
+//        return saver.loadStage();
+//    }
     public String addShape(Shape shape){
         if(shape.getId()==null){
             String id = "s"+idCounter++;
