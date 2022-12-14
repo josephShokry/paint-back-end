@@ -99,14 +99,6 @@ public class Database {
     public void clearShapesList(){
         currentShapes.clear();
     }
-    @Override
-    public String toString() {
-        return "Database{" +
-                "undoStack=" + undoStack +
-                ", redoStack=" + redoStack +
-                ", currentShapes=" + currentShapes +
-                '}';
-    }
 
     public Stack<Command> getUndoStack() {
         return undoStack;

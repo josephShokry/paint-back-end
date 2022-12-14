@@ -1,6 +1,7 @@
 package com.oop_paint.Saver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.oop_paint.Database.Database;
 import java.io.File;
 import java.io.IOException;
@@ -19,14 +20,13 @@ public class Saver {
     }
 
     public Object load() throws IOException {
-        File file = new File(path);
-        Database data = mapper.readValue(file, Database.class);
-//        database = data;
+        Database data = mapper.readValue(new File(path), Database.class);
         database.setCurrentShapes(data.getCurrentShapes());
         database.setRedoStack(data.getRedoStack());
         database.setUndoStack(data.getUndoStack());
         database.setIdCounter(data.getIdCounter());
-        return mapper.readValue(new File(stagePath), Object.class);
+        ObjectMapper stageMapper = new JsonMapper();
+        return stageMapper.readValue(new File(stagePath), Object.class);
     }
 
     public void setMapper(ObjectMapper mapper) {

@@ -13,23 +13,19 @@ public class Controller {
     private final Database database = Database.getInstance();
     @PostMapping("/draw")
     public ShapeDTO draw(@RequestBody ShapeDTO shapeDTO){
-        System.out.println(database.toString());
         return paint.draw(shapeDTO);
     }
     @GetMapping("/undo")
     public ShapeDTO undo(){
-        System.out.println(database.toString());
         return paint.undo();
     }
     @GetMapping("/redo")
     public ShapeDTO redo(){
-        System.out.println(database.toString());
         return paint.redo();
     }
     @PutMapping("/update")
     public void update(@RequestBody ShapeDTO shapeDTO){
         paint.update(shapeDTO);
-        System.out.println(database.toString());
     }
     @PostMapping("/save")
     public void save(@RequestBody ShapeDTO shapeDTO) throws IOException {
