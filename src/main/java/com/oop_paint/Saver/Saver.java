@@ -16,7 +16,8 @@ public class Saver {
 
     public void save() throws IOException {
         mapper.writeValue(new File(path),database);
-        mapper.writeValue(new File(stagePath),stage);
+        ObjectMapper stageMapper = new JsonMapper();
+        stageMapper.writeValue(new File(stagePath),stage);
     }
 
     public Object load() throws IOException {
